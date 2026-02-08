@@ -36,6 +36,19 @@ if (collectionType === 'projects') {
     }, {})
 }
 
+/* Experiences */
+if (collectionType === 'experiences') {
+  const experiences = await getCollection(collectionType)
+  isEmpty = experiences.length === 0
+
+  data = experiences
+    .map((p) => p.data)
+    .reduce((acc: Record<string, GroupItemData[]>, { category, ...rest }) => {
+      ;(acc[category] ??= []).push(rest)
+      return acc
+    }, {})
+}
+
 /* Toc */
 const { toc } = FEATURES
 const tocEnabled = Array.isArray(toc) && toc[0] && pageToc

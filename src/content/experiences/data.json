@@ -1,0 +1,23 @@
+[
+    {
+        "id": "Unity Developer",
+        "link": "https://unity.com",
+        "desc": "Développeur Freelance spécialisé en Unity WebGL et C#. Création d'expériences interactives et optimisation mobile.",
+        "icon": "i-ri-gamepad-line",
+        "category": "Pro"
+    },
+    {
+        "id": "CEO & Founder",
+        "link": "https://ninosacchi.dev",
+        "desc": "CEO de ma propre structure. Gestion de projet, direction technique et relation client.",
+        "icon": "i-ri-vip-crown-line",
+        "category": "Pro"
+    },
+    {
+        "id": "Bachelor Game Design",
+        "link": "https://ninosacchi.dev",
+        "desc": "Formation spécialisée en Game Design et programmation gameplay.",
+        "icon": "i-ri-graduation-cap-line",
+        "category": "Education"
+    }
+]

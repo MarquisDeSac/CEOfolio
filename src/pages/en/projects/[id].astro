@@ -1,0 +1,133 @@
+import { getCollection } from 'astro:content'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+import { resolvePath } from '~/utils/path'
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects')
+  return projects.map(project => ({
+    params: { id: project.id },
+    props: { project },
+  }))
+}
+
+const { project } = Astro.props
+const { data } = project
+
+// Multi-language Data Selection
+const desc = data.desc_en || data.desc
+const details = data.details_en || data.details
+const skills = data.skills_en || data.skills
+const category = data.category_en || data.category
+
+const colors = ['neon-blue', 'neon-pink', 'sunset-purple']
+// Deterministic hash for consistent color
+const hash = project.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+const color = colors[hash % 3]
+
+const colorMap = {
+  'neon-blue': '0, 243, 255',
+  'neon-pink': '255, 0, 127',
+  'sunset-purple': '188, 19, 254'
+}
+const rgbColor = colorMap[color]
+
+const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+---
+
+<BaseLayout title={title} description={desc} bgType="retro-grid">
+    <style define:vars={{ 'c-main': rgbColor }}>
+      :root {
+        --c-main: var(--c-main);
+      }
+    </style>
+
+    <div class="max-w-5xl mx-auto px-6 py-10 relative z-10">
+        <!-- Back Button -->
+        <a href={resolvePath('/en/projects')} class="inline-flex items-center gap-2 text-sm opacity-60 hover:opacity-100 hover:text-black dark:hover:text-white transition-all mb-8 group no-underline u-text-main">
+            <div class="i-ri-arrow-left-line group-hover:-translate-x-1 transition-transform"></div>
+            Back to Projects
+        </a>
+
+        <!-- Custom Header (Icon & Title) -->
+        <header class="flex flex-col md:flex-row gap-8 items-start mb-12">
+            <div class={`p-8 rounded-2xl bg-${color}/10 border border-${color}/20 text-${color} text-6xl shadow-[0_0_30px_rgba(var(--c-${color}),0.15)]`}>
+                <div class={data.icon}></div>
+            </div>
+            <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class={`px-3 py-1 rounded-full text-xs font-bold bg-${color}/10 text-${color} border border-${color}/20 uppercase tracking-wider`}>
+                        {category}
+                    </span>
+                    {data.date && (
+                        <span class="text-sm opacity-50 flex items-center gap-1 u-text-main">
+                            <span class="i-ri-calendar-line"></span> {data.date}
+                        </span>
+                    )}
+                </div>
+                <h1 class="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight u-text-main">{title}</h1>
+                {data.client && (
+                    <p class="text-xl opacity-60 font-mono u-text-main">{data.client}</p>
+                )}
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <!-- Left: Description & Details -->
+            <div class="col-span-1 md:col-span-2 space-y-8">
+                <section class="prose max-w-none u-text-main">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 u-text-main">
+                        <span class={`i-ri-file-text-line text-${color}`}></span> About
+                    </h3>
+                    <p class="text-lg leading-relaxed">
+                        {desc}
+                    </p>
+                </section>
+
+                {(details || []).length > 0 && (
+                    <section>
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 u-text-main">
+                            <span class={`i-ri-list-check text-${color}`}></span> Key Features
+                        </h3>
+                        <ul class="grid gap-3">
+                            {(details || []).map(detail => (
+                                <li class="flex items-start gap-3 p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 transition-colors">
+                                    <span class={`i-ri-check-line text-${color} mt-1 shrink-0`}></span>
+                                    <span class="text-sm leading-relaxed u-text-muted">{detail}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                )}
+            </div>
+
+            <!-- Right: Skills & Meta -->
+            <div class="col-span-1 space-y-8">
+                <section class="p-6 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10">
+                    <h3 class="text-sm font-bold opacity-50 uppercase tracking-widest mb-4 u-text-main">Skills</h3>
+                    <div class="flex flex-wrap gap-2">
+                        {(skills || []).map(skill => (
+                            <span class="px-3 py-1.5 text-xs rounded border border-black/10 dark:border-white/10 bg-white dark:bg-black/20 u-text-muted hover:border-black/30 dark:hover:border-white/30 transition-colors">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
+                </section>
+
+                <section>
+                    <a href={data.link} target="_blank" class={`flex items-center justify-center gap-2 w-full p-4 rounded-xl bg-${color} text-black font-bold hover:brightness-110 transition-all shadow-[0_0_20px_rgba(var(--c-${color}),0.4)] hover:shadow-[0_0_30px_rgba(var(--c-${color}),0.6)] no-underline`}>
+                        <span class="i-ri-github-fill text-xl"></span>
+                        View Repository
+                    </a>
+                </section>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+<script>
+    // Force opacity reset on prose P tags if they misbehave
+    document.querySelectorAll('.prose p').forEach(el => {
+        el.style.opacity = '1';
+    });
+</script>

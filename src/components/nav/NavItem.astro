@@ -20,12 +20,29 @@ type Props =
 
 const { type, item, mergeOnMobile, mobileItemType } = Astro.props
 
-const href = type == 'internal' ? resolvePath(item.path) : item.link
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'fr'
+const localizedPath = type === 'internal' ? `/${lang}${item.path.replace(/\/$/, '')}` : item.path
+
+// Simple Translation Map for Nav Items
+const navTranslations: Record<string, { en: string, fr: string }> = {
+  'Projets': { en: 'Projects', fr: 'Projets' },
+  'Expériences': { en: 'Experiences', fr: 'Expériences' },
+  'Parcours': { en: 'Education', fr: 'Parcours' },
+  'Compétences': { en: 'Skills', fr: 'Compétences' },
+  'Contact': { en: 'Contact', fr: 'Contact' }
+}
+
+const originalText = item.text || item.title
+const translatedText = (type === 'internal' && navTranslations[originalText]) 
+  ? navTranslations[originalText][lang] 
+  : originalText
+
+const href = type == 'internal' ? resolvePath(localizedPath) : item.link
 const rel = type === 'internal' ? undefined : 'me'
 const external = type === 'internal' ? false : true
 const ariaCurrent =
   type === 'internal'
-    ? Astro.url.pathname === resolvePath(item.path)
+    ? Astro.url.pathname.replace(/\/$/, '') === resolvePath(localizedPath).replace(/\/$/, '')
       ? 'page'
       : false
     : undefined
@@ -39,14 +56,14 @@ const ariaCurrent =
           item.displayMode === 'iconToTextOnMobile') && (
           <li class="block py-3 border-b b-[var(--c-scrollbar)] leading-6">
             <Link
-              class="block op-50! op-transition"
+              class="block op-transition op-100 text-[var(--c-text)]"
               href={href}
-              title={item.title}
+              title={translatedText}
               rel={rel}
               external={external}
               aria-current={ariaCurrent}
             >
-              <span>{item.text}</span>
+              <span>{translatedText}</span>
             </Link>
           </li>
         )
@@ -54,9 +71,9 @@ const ariaCurrent =
         (item.displayMode === 'alwaysIcon' ||
           item.displayMode === 'textToIconOnMobile') && (
           <Link
-            class="block op-50! op-transition"
+            class="block op-transition op-100 text-[var(--c-text)]"
             href={href}
-            title={item.title}
+            title={translatedText}
             rel={rel}
             external={external}
             aria-current={ariaCurrent}
@@ -67,9 +84,9 @@ const ariaCurrent =
       )
     ) : (
       <Link
-        class="lt-md:hidden op-50! op-transition"
+        class="lt-md:hidden op-transition op-100 text-[var(--c-text)]"
         href={href}
-        title={item.title}
+        title={translatedText}
         rel={rel}
         external={external}
         aria-current={ariaCurrent}
@@ -82,7 +99,7 @@ const ariaCurrent =
         {(item.displayMode === 'alwaysText' ||
           item.displayMode === 'textHiddenOnMobile' ||
           item.displayMode === 'textToIconOnMobile') && (
-          <span>{item.text}</span>
+          <span>{translatedText}</span>
         )}
       </Link>
     )
@@ -93,27 +110,27 @@ const ariaCurrent =
         item.displayMode === 'textHiddenOnMobile'
           ? 'lt-md:hidden'
           : ''
-      } op-transition`}
+      } op-transition op-100 text-[var(--c-text)]`}
       href={href}
-      title={item.title}
+      title={translatedText}
       rel={rel}
       external={external}
       aria-current={ariaCurrent}
     >
       {(item.displayMode === 'alwaysText' ||
-        item.displayMode === 'textHiddenOnMobile') && <span>{item.text}</span>}
+        item.displayMode === 'textHiddenOnMobile') && <span>{translatedText}</span>}
       {(item.displayMode === 'alwaysIcon' ||
-        item.displayMode === 'iconHiddenOnMobile') && <div class={item.icon} />}
+        item.displayMode === 'iconHiddenOnMobile') && <div class={`${item.icon} text-2xl`} />}
       {item.displayMode === 'textToIconOnMobile' && (
         <>
-          <span class="lt-md:hidden">{item.text}</span>
-          <div class={`md:hidden ${item.icon}`} />
+          <span class="lt-md:hidden">{translatedText}</span>
+          <div class={`md:hidden ${item.icon} text-2xl`} />
         </>
       )}
       {item.displayMode === 'iconToTextOnMobile' && (
         <>
-          <span class="md:hidden">{item.text}</span>
-          <div class={`lt-md:hidden ${item.icon}`} />
+          <span class="md:hidden">{translatedText}</span>
+          <div class={`lt-md:hidden ${item.icon} text-2xl`} />
         </>
       )}
     </Link>

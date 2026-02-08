@@ -1,401 +1,288 @@
 [
   {
-    "id": "astro",
-    "link": "https://github.com/withastro/astro",
-    "desc": "The web framework for content-driven websites",
-    "icon": "i-devicon-astro",
-    "category": "Astro Ecosystem"
+    "id": "classlab",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Serious Game immersif 3D pour la formation des enseignants de l'Université Uniminuto (Colombie).",
+    "desc_en": "Immersive 3D Serious Game for training teachers at Uniminuto University (Colombia).",
+    "icon": "i-ri-book-read-line",
+    "category": "Serious Game",
+    "date": "oct. 2025 - janv. 2026",
+    "client": "Institut National Universitaire Champollion",
+    "skills": [
+      "Chef de projet",
+      "Game design",
+      "Serious Game",
+      "Unity WebGL",
+      "C#",
+      "Narrative Design",
+      "UI/UX",
+      "Localisation"
+    ],
+    "skills_en": [
+      "Project Manager",
+      "Game Design",
+      "Serious Game",
+      "Unity WebGL",
+      "C#",
+      "Narrative Design",
+      "UI/UX",
+      "Localization"
+    ],
+    "details": [
+      "Simulation 3D à la troisième personne avec dialogues interactifs.",
+      "Système narratif à embranchements multiples pour évaluer les compétences décisionnelles.",
+      "Profilage pédagogique personnalisé basé sur quatre approches (légaliste, protectrice, pragmatique, métacognitive).",
+      "Interface multilingue (Français, Anglais, Espagnol).",
+      "Système d'analyse de performance avec visualisation radar."
+    ],
+    "details_en": [
+      "Third-person 3D simulation with interactive dialogues.",
+      "Branching narrative system to assess decision-making skills.",
+      "Personalized pedagogical profiling based on four approaches (legalistic, protective, pragmatic, metacognitive).",
+      "Multilingual interface (French, English, Spanish).",
+      "Performance analysis system with radar visualization."
+    ],
+    "images": []
   },
   {
-    "id": "@astrojs/check",
-    "link": "https://www.npmjs.com/package/@astrojs/check",
-    "desc": "Astro's official check tool",
-    "icon": "i-carbon-settings-check",
-    "category": "Astro Ecosystem"
+    "id": "temperamancien",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Jeu sérieux éducatif de combat 2D sur les transformations de la matière pour le CEA.",
+    "desc_en": "Educational 2D combat Serious Game about matter transformations for the CEA.",
+    "icon": "i-ri-fire-line",
+    "category": "Serious Game",
+    "date": "janv. 2026 - janv. 2026",
+    "client": "Institut National Universitaire Champollion",
+    "skills": [
+      "Chef de projet",
+      "Unity",
+      "C#",
+      "State Machine Pattern",
+      "Game design",
+      "Vulgarisation scientifique",
+      "Conception sonore"
+    ],
+    "skills_en": [
+      "Project Manager",
+      "Unity",
+      "C#",
+      "State Machine Pattern",
+      "Game Design",
+      "Science Popularization",
+      "Sound Design"
+    ],
+    "details": [
+      "Jeu de combat 2D mêlant action et apprentissage scientifique (3 états et 6 transformations de la matière).",
+      "Narration immersive et humour pour un public jeune (15 ans).",
+      "Mécaniques de combat stratégique basées sur les propriétés physiques.",
+      "Cinématiques doublées et sound design réactif.",
+      "Système de vérification pédagogique en temps réel."
+    ],
+    "details_en": [
+      "2D combat game mixing action and scientific learning (3 states and 6 transformations of matter).",
+      "Immersive storytelling and humor for a young audience (15 years old).",
+      "Strategic combat mechanics based on physical properties.",
+      "Dubbed cinematics and reactive sound design.",
+      "Real-time pedagogical verification system."
+    ],
+    "images": []
   },
   {
-    "id": "@astrojs/markdown-remark",
-    "link": "https://www.npmjs.com/package/@astrojs/markdown-remark",
-    "desc": "Astro's integration with markdown using Remark",
-    "icon": "i-la-markdown",
-    "category": "Astro Ecosystem"
+    "id": "dramatic-life-story",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Roguelite 2D Unity intégré avec une application Web Spring Boot pour la gestion de base de données.",
+    "desc_en": "Unity 2D Roguelite integrated with a Spring Boot Web application for database management.",
+    "icon": "i-ri-sword-line",
+    "category": "Game Dev Fullstack",
+    "date": "mars 2025 - juin 2025",
+    "client": "Ajou University (아주대학교)",
+    "skills": [
+      "Unity 2D",
+      "C#",
+      "Spring Boot",
+      "REST API",
+      "MVC Pattern",
+      "SQL",
+      "Agile/Scrum",
+      "Git"
+    ],
+    "skills_en": [
+      "Unity 2D",
+      "C#",
+      "Spring Boot",
+      "REST API",
+      "MVC Pattern",
+      "SQL",
+      "Agile/Scrum",
+      "Git"
+    ],
+    "details": [
+      "Intégration Front-End Unity et Back-End Spring Boot via API REST.",
+      "Système de combat au tour par tour et gestion de statistiques via base de données.",
+      "Création d'assets Pixel Art et Tilemaps.",
+      "Travail en équipe Scrum avec sprints et livrables d'étapes.",
+      "Code modulaire et intégrité des données assurée."
+    ],
+    "details_en": [
+      "Unity Front-End and Spring Boot Back-End integration via REST API.",
+      "Turn-based combat system and stats management via database.",
+      "Creation of Pixel Art assets and Tilemaps.",
+      "Scrum team work with sprints and stage deliverables.",
+      "Modular code and data integrity ensured."
+    ],
+    "images": []
   },
   {
-    "id": "@astrojs/mdx",
-    "link": "https://www.npmjs.com/package/@astrojs/mdx",
-    "desc": "Astro's MDX support",
-    "icon": "i-logos-mdx",
-    "category": "Astro Ecosystem"
+    "id": "sonic-alphabet",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Jeu éducatif VR 3D pour l'apprentissage de l'alphabet et de la prononciation.",
+    "desc_en": "3D VR educational game for learning alphabet and pronunciation.",
+    "icon": "i-ri-customer-service-2-line",
+    "category": "VR / EdTech",
+    "date": "mars 2025 - juin 2025",
+    "client": "Ajou University (아주대학교)",
+    "skills": [
+      "Unity 3D",
+      "XR Interaction Toolkit",
+      "VR Development",
+      "C#",
+      "Spatial Audio",
+      "VR Comfort",
+      "Modular Systems"
+    ],
+    "skills_en": [
+      "Unity 3D",
+      "XR Interaction Toolkit",
+      "VR Development",
+      "C#",
+      "Spatial Audio",
+      "VR Comfort",
+      "Modular Systems"
+    ],
+    "details": [
+      "Jeu VR complet : Design, Programmation, Environnement, Interactions (Grab, Poke, Teleport).",
+      "Système d'apprentissage modulaire extensible à d'autres sons/alphabets.",
+      "Outils de confort VR pour réduire le Motion Sickness.",
+      "Interface diégétique et audio spatialisé."
+    ],
+    "details_en": [
+      "Full VR Game: Design, Programming, Environment, Interactions (Grab, Poke, Teleport).",
+      "Modular learning system extensible to other sounds/alphabets.",
+      "VR comfort tools to reduce Motion Sickness.",
+      "Diegetic interface and spatialized audio."
+    ],
+    "images": []
   },
   {
-    "id": "@astrojs/rss",
-    "link": "https://www.npmjs.com/package/@astrojs/rss",
-    "desc": "Astro RSS feed generation support",
-    "icon": "i-cil-rss",
-    "category": "Astro Ecosystem"
+    "id": "communication-type-test",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Système de diagnostic de style de communication basé sur le web et l'IA vocale.",
+    "desc_en": "Web-based communication style diagnostic system using vocal AI.",
+    "icon": "i-ri-mic-line",
+    "category": "Web / AI",
+    "date": "mars 2025 - juin 2025",
+    "client": "VHEX Lab Co., Ltd.",
+    "skills": [
+      "Unity WebGL",
+      "C#",
+      "Interop JS",
+      "Voice Cloning",
+      "TTS/STT",
+      "REST API",
+      "UI/UX",
+      "Audio Recording"
+    ],
+    "details": [
+      "Diagnostic de style de communication via scénarios vidéo courts.",
+      "Enregistrement vocal utilisateur ou choix de réponses (TTS/Voice Cloning).",
+      "Collecte de données vocales/texte pour entraînement de modèle IA.",
+      "Génération de rapports détaillés par le modèle IA.",
+      "Interaction WebGL fluide avec capture audio navigateur."
+    ],
+    "images": []
   },
   {
-    "id": "@astrojs/sitemap",
-    "link": "https://www.npmjs.com/package/@astrojs/sitemap",
-    "desc": "Astro Sitemap generation",
-    "icon": "i-uil-sitemap",
-    "category": "Astro Ecosystem"
+    "id": "face-the-fear",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Action Roguelite 2D sur Godot inspiré de The Binding of Isaac.",
+    "desc_en": "2D Action Roguelite on Godot inspired by The Binding of Isaac.",
+    "icon": "i-ri-skull-line",
+    "category": "Game Dev",
+    "date": "nov. 2024 - déc. 2024",
+    "client": "Ajou University (아주대학교)",
+    "skills": [
+      "Godot Engine",
+      "GDScript",
+      "Génération Procédurale",
+      "Game AI",
+      "Level Design",
+      "Tilemaps",
+      "Game Balancing"
+    ],
+    "skills_en": [
+      "Godot Engine",
+      "GDScript",
+      "Procedural Generation",
+      "Game AI",
+      "Level Design",
+      "Tilemaps",
+      "Game Balancing"
+    ],
+    "details": [
+      "Roguelite d'action développé sur Godot Engine.",
+      "Génération pseudo-procédurale de salles et layouts.",
+      "Ennemis et boss aux comportements distincts.",
+      "Système d'objets (consommables, upgrades de stats).",
+      "Ambiance immersive (BGM, SFX)."
+    ],
+    "details_en": [
+      "Action Roguelite developed on Godot Engine.",
+      "Pseudo-procedural generation of rooms and layouts.",
+      "Enemies and bosses with distinct behaviors.",
+      "Item system (consumables, stat upgrades).",
+      "Immersive atmosphere (BGM, SFX)."
+    ],
+    "images": []
   },
   {
-    "id": "astro-robots-txt",
-    "link": "https://www.npmjs.com/package/astro-robots-txt",
-    "desc": "Robots.txt generator for Astro",
-    "icon": "i-catppuccin-robots",
-    "category": "Astro Ecosystem"
-  },
-  {
-    "id": "prettier-plugin-astro",
-    "link": "https://github.com/withastro/prettier-plugin-astro",
-    "desc": "Prettier plugin for Astro files",
-    "icon": "i-logos-prettier",
-    "category": "Astro Ecosystem"
-  },
-  {
-    "id": "@ascorbic/feed-loader",
-    "link": "https://www.npmjs.com/package/@ascorbic/feed-loader",
-    "desc": "Load feeds into your Astro project",
-    "icon": "i-flat-color-icons-feed-in",
-    "category": "Astro Loaders"
-  },
-  {
-    "id": "astro-loader-github-releases",
-    "link": "https://github.com/lin-stephanie/astro-loaders/tree/main/packages/astro-loader-github-releases",
-    "desc": "Loads GitHub releases from commits or repositories",
-    "icon": "i-bx-rocket",
-    "category": "Astro Loaders"
-  },
-  {
-    "id": "astro-loader-github-prs",
-    "link": "https://github.com/lin-stephanie/astro-loaders/tree/main/packages/astro-loader-github-prs",
-    "desc": "Loads GitHub pull requests with a search query",
-    "icon": "i-ri-git-pull-request-line",
-    "category": "Astro Loaders"
-  },
-  {
-    "id": "astro-loader-bluesky-posts",
-    "link": "https://github.com/lin-stephanie/astro-loaders/tree/main/packages/astro-loader-bluesky-posts",
-    "desc": "Loads Bluesky posts and threads using post URLs or AT-URIs",
-    "icon": "i-logos-bluesky",
-    "category": "Astro Loaders"
-  },
-  {
-    "id": "unocss",
-    "link": "https://github.com/unocss/unocss",
-    "desc": "The instant on-demand atomic CSS engine",
-    "icon": "i-logos-unocss",
-    "category": "CSS & Icons"
-  },
-  {
-    "id": "@unocss/reset",
-    "link": "https://www.npmjs.com/package/@unocss/reset",
-    "desc": "UnoCSS reset styles",
-    "icon": "i-ri-reset-right-fill",
-    "category": "CSS & Icons"
-  },
-  {
-    "id": "@iconify/json",
-    "link": "https://github.com/iconify/iconify",
-    "desc": "Iconify JSON icon data",
-    "icon": "i-simple-icons-iconify",
-    "category": "CSS & Icons"
-  },
-  {
-    "id": "remark-directive",
-    "link": "https://github.com/remarkjs/remark-directive",
-    "desc": "Remark plugin for custom Markdown directives",
-    "icon": "i-mdi-magic",
-    "category": "Markdown Handling"
-  },
-  {
-    "id": "remark-directive-sugar",
-    "link": "https://github.com/lin-stephanie/remark-directive-sugar",
-    "desc": "Remark plugin to provide predefined directives",
-    "icon": "i-ep-sugar",
-    "category": "Markdown Handling"
-  },
-  {
-    "id": "remark-imgattr",
-    "link": "https://github.com/OliverSpeir/remark-imgattr",
-    "desc": "Remark plugin to add attributes to markdown and mdx images",
-    "icon": "i-bi-images",
-    "category": "Markdown Handling"
-  },
-  {
-    "id": "remark-math",
-    "link": "https://github.com/remarkjs/remark-math/tree/main/packages/remark-math",
-    "desc": "Remark plugin to support math (`$C_L$`)",
-    "icon": "i-mynaui-math-square",
-    "category": "Markdown Handling"
-  },
-  {
-    "id": "rehype-autolink-headings",
-    "link": "https://github.com/rehypejs/rehype-autolink-headings",
-    "desc": "Rehype plugin for automatically linking headings",
-    "icon": "i-lucide-lab-heading-square",
-    "category": "HTML Handling"
-  },
-  {
-    "id": "rehype-callouts",
-    "link": "https://github.com/lin-stephanie/rehype-callouts",
-    "desc": "Rehype plugin for rendering blockquote-based callouts",
-    "icon": "i-fluent-mdl2-text-callout",
-    "category": "HTML Handling"
-  },
-  {
-    "id": "rehype-external-links",
-    "link": "https://github.com/rehypejs/rehype-external-links",
-    "desc": "Rehype plugin for handling external links",
-    "icon": "i-line-md-external-link",
-    "category": "HTML Handling"
-  },
-  {
-    "id": "rehype-katex",
-    "link": "https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex",
-    "desc": "Rehype plugin to render elements with a `language-math` class with KaTeX",
-    "icon": "i-tabler-math",
-    "category": "HTML Handling"
-  },
-  {
-    "id": "rehype-wrap-all",
-    "link": "https://github.com/florentb/rehype-wrap-all",
-    "desc": "Rehype plugin to wrap all matching elements with a given element",
-    "icon": "i-tcarbon-element-picker",
-    "category": "HTML Handling"
-  },
-  {
-    "id": "sharp",
-    "link": "https://github.com/lovell/sharp",
-    "desc": "High performance Node.js image processing",
-    "icon": "i-icon-park-performance",
-    "category": "Image Handling"
-  },
-  {
-    "id": "satori-html",
-    "link": "https://github.com/natemoo-re/satori-html",
-    "desc": "HTML rendering engine built for Satori",
-    "icon": "i-ic-twotone-imagesearch-roller",
-    "category": "Image Handling"
-  },
-  {
-    "id": "satori",
-    "link": "https://github.com/vercel/satori",
-    "desc": "Satori is a library for rendering HTML to SVG",
-    "icon": "i-catppuccin-svg",
-    "category": "Image Handling"
-  },
-  {
-    "id": "viewerjs",
-    "link": "https://github.com/fengyuanchen/viewerjs",
-    "desc": "JavaScript image viewer",
-    "icon": "i-icon-park-zoom-in",
-    "category": "Image Handling"
-  },
-  {
-    "id": "astro-expressive-code",
-    "link": "https://www.npmjs.com/package/astro-expressive-code",
-    "desc": "Code highlighting plugin for Astro",
-    "icon": "i-fluent-color-code-20",
-    "category": "Code Block Handling"
-  },
-  {
-    "id": "@expressive-code/plugin-collapsible-sections",
-    "link": "https://www.npmjs.com/package/@expressive-code/plugin-collapsible-sections",
-    "desc": "Plugin for collapsible sections in code blocks",
-    "icon": "i-fluent-color-code-20",
-    "category": "Code Block Handling"
-  },
-  {
-    "id": "@expressive-code/plugin-line-numbers",
-    "link": "https://www.npmjs.com/package/@expressive-code/plugin-line-numbers",
-    "desc": "Plugin for line numbers in code blocks",
-    "icon": "i-fluent-color-code-20",
-    "category": "Code Block Handling"
-  },
-  {
-    "id": "p5",
-    "link": "https://github.com/processing/p5.js",
-    "desc": "A JavaScript library for accessible creative coding",
-    "icon": "i-devicon-p5js",
-    "category": "Utilities"
-  },
-  {
-    "id": "pagefind",
-    "link": "https://github.com/CloudCannon/pagefind",
-    "desc": "A static search tool",
-    "icon": "i-icon-park-search",
-    "category": "Utilities"
-  },
-  {
-    "id": "nprogress",
-    "link": "https://github.com/rstacruz/nprogress",
-    "desc": "Slim progress bars for Ajax applications",
-    "icon": "i-svg-spinners-3-dots-fade",
-    "category": "Utilities"
-  },
-  {
-    "id": "@atproto/api",
-    "link": "https://github.com/bluesky-social/atproto/tree/main/packages/api",
-    "desc": "APIs for ATProto and Bluesky",
-    "icon": "i-logos-bluesky",
-    "category": "Utilities"
-  },
-  {
-    "id": "reading-time",
-    "link": "https://github.com/ngryman/reading-time",
-    "desc": "Estimate reading time for text",
-    "icon": "i-ep-reading",
-    "category": "Utilities"
-  },
-  {
-    "id": "html-entities",
-    "link": "https://github.com/mdevils/html-entities",
-    "desc": "Encode/decode HTML entities",
-    "icon": "i-icon-park-transform",
-    "category": "Utilities"
-  },
-  {
-    "id": "typescript",
-    "link": "https://github.com/microsoft/TypeScript",
-    "desc": "TypeScript is a superset of JavaScript",
-    "icon": "i-vscode-icons-file-type-typescript-official",
-    "category": "TypeScript Related"
-  },
-  {
-    "id": "typescript-eslint",
-    "link": "https://github.com/typescript-eslint/typescript-eslint",
-    "desc": "TypeScript plugin for ESLint",
-    "icon": "i-vscode-icons-file-type-typescript-official",
-    "category": "TypeScript Related"
-  },
-  {
-    "id": "@typescript-eslint/parser",
-    "link": "https://www.npmjs.com/package/@typescript-eslint/parser",
-    "desc": "TypeScript ESLint parser",
-    "icon": "i-vscode-icons-file-type-typescript-official",
-    "category": "TypeScript Related"
-  },
-  {
-    "id": "eslint",
-    "link": "https://github.com/eslint/eslint",
-    "desc": "The pluggable linting utility for JavaScript",
-    "icon": "i-logos-eslint",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "@eslint/js",
-    "link": "https://www.npmjs.com/package/@eslint/js",
-    "desc": "ESLint core JS rules",
-    "icon": "i-logos-eslint",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "eslint-plugin-astro",
-    "link": "https://github.com/ota-meshi/eslint-plugin-astro",
-    "desc": "ESLint plugin for Astro",
-    "icon": "i-logos-eslint",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "eslint-plugin-jsx-a11y",
-    "link": "https://github.com/jsx-eslint/eslint-plugin-jsx-a11y",
-    "desc": "Static AST checker for accessibility rules",
-    "icon": "i-logos-eslint",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "eslint-config-prettier",
-    "link": "https://github.com/prettier/eslint-config-prettier",
-    "desc": "Disables ESLint rules that conflict with Prettier",
-    "icon": "i-logos-eslint",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "globals",
-    "link": "https://github.com/sindresorhus/globals",
-    "desc": "Global variables for various environments",
-    "icon": "i-solar-global-broken",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "prettier",
-    "link": "https://github.com/prettier/prettier",
-    "desc": "An opinionated code formatter",
-    "icon": "i-logos-prettier",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "simple-git-hooks",
-    "link": "https://github.com/toplenboren/simple-git-hooks",
-    "desc": "Easily manage Git hooks",
-    "icon": "i-devicon-git",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "lint-staged",
-    "link": "https://github.com/okonet/lint-staged",
-    "desc": "Run linters on staged git files",
-    "icon": "i-devicon-git",
-    "category": "Linting & Formatting"
-  },
-  {
-    "id": "chalk",
-    "link": "https://github.com/chalk/chalk",
-    "desc": "Terminal string styling done right",
-    "icon": "i-logos-chalk",
-    "category": "CLI & Terminal"
-  },
-  {
-    "id": "del-cli",
-    "link": "https://github.com/sindresorhus/del-cli",
-    "desc": "Delete files/folders using globs",
-    "icon": "i-icon-park-delete",
-    "category": "CLI & Terminal"
-  },
-  {
-    "id": "unist-util-visit",
-    "link": "https://github.com/syntax-tree/unist-util-visit",
-    "desc": "Utility to recursively walk through unist nodes",
-    "icon": "i-gravity-ui-nodes-down",
-    "category": "Remark Utilities"
-  },
-  {
-    "id": "mdast-util-to-string",
-    "link": "https://github.com/syntax-tree/mdast-util-to-string",
-    "desc": "Utility to get the text content of an MDAST node",
-    "icon": "i-vscode-icons-file-type-light-remark",
-    "category": "Remark Utilities"
-  },
-  {
-    "id": "antfu/antfu.me",
-    "link": "https://github.com/antfu/antfu.me",
-    "desc": "Anthony Fu's personal website",
-    "icon": "i-mynaui-letter-a-waves",
-    "category": "Credits"
-  },
-  {
-    "id": "satnaing/astro-paper",
-    "link": "https://github.com/satnaing/astro-paper",
-    "desc": "A minimal, accessible and SEO-friendly Astro blog theme",
-    "icon": "i-quill-paper",
-    "category": "Credits"
-  },
-  {
-    "id": "chrismwilliams/astro-theme-cactus",
-    "link": "https://github.com/chrismwilliams/astro-theme-cactus",
-    "desc": "A simple Astro theme. Use it to create your blog or website",
-    "icon": "i-noto-v1-cactus",
-    "category": "Credits"
-  },
-  {
-    "id": "saicaca/fuwari",
-    "link": "https://github.com/saicaca/fuwari",
-    "desc": "A static blog template built with Astro",
-    "icon": "i-gridicons-themes",
-    "category": "Credits"
+    "id": "element-powder",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Simulation Sandbox 'Falling Sand' développée en Processing.",
+    "desc_en": "'Falling Sand' Sandbox Simulation developed in Processing.",
+    "icon": "i-ri-flask-line",
+    "category": "Simulation / Creative Coding",
+    "date": "sept. 2024 - nov. 2024",
+    "client": "Ajou University (아주대학교)",
+    "skills": [
+      "Processing",
+      "Java",
+      "Automates Cellulaires",
+      "Algorithmique",
+      "Physique des particules",
+      "Optimisation"
+    ],
+    "skills_en": [
+      "Processing",
+      "Java",
+      "Cellular Automata",
+      "Algorithmics",
+      "Particle Physics",
+      "Optimization"
+    ],
+    "details": [
+      "Simulation sandbox temps-réel avec interactions physiques (feu, eau, sable, gaz).",
+      "Système de grille à résolution ajustable.",
+      "Réactivité visuelle dynamique et effets de flou gaussien.",
+      "Intégration d'API pour fonds dynamiques.",
+      "Optimisation pour haute densité de particules."
+    ],
+    "details_en": [
+      "Real-time sandbox simulation with physical interactions (fire, water, sand, gas).",
+      "Adjustable resolution grid system.",
+      "Dynamic visual reactivity and Gaussian blur effects.",
+      "API integration for dynamic backgrounds.",
+      "Optimization for high particle density."
+    ],
+    "images": []
   }
 ]

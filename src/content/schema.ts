@@ -148,6 +148,7 @@ export const projectSchema = z.object({
   desc: z
     .string()
     .describe('**Required**. A brief description summarizing the project.'),
+  desc_en: z.string().optional().describe('English description.'),
   icon: z
     .string()
     .regex(
@@ -158,9 +159,22 @@ export const projectSchema = z.object({
       '**Required**. Icon representing the project. It must be in the format `i-<collection>-<icon>` or `i-<collection>:<icon>` as per [UnoCSS](https://unocss.dev/presets/icons) specs. [Check all available icons here](https://icones.js.org/).'
     ),
   category: z.string().describe('**Required**. Category of the project.'),
+  category_en: z.string().optional().describe('English category.'),
+  date: z.string().optional().describe('Project duration or date.'),
+  client: z.string().optional().describe('Client or Organization associated with the project.'),
+  skills: z.array(z.string()).default([]).describe('List of technical skills used.'),
+  skills_en: z.array(z.string()).optional().describe('List of technical skills used (English).'),
+  details: z.array(z.string()).default([]).describe('Bullet points describing the project.'),
+  details_en: z.array(z.string()).optional().describe('Bullet points describing the project (English).'),
+  images: z.array(z.string()).default([]).describe('List of image paths for the project gallery.'),
 })
 
 export type ProjectSchema = z.infer<typeof projectSchema>
+// Forced Rebuild
+
+/* Experiences */
+export const experienceSchema = projectSchema
+export type ExperienceSchema = z.infer<typeof experienceSchema>
 
 /* Photos */
 export const photoSchema = z.object({

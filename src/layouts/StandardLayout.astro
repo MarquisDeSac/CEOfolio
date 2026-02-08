@@ -6,6 +6,7 @@ interface Props {
   isSearchable?: boolean
   searchFilter?: string
   class?: string
+  articleClass?: string
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   isSearchable,
   searchFilter,
   class: className,
+  articleClass,
 } = Astro.props
 ---
 
@@ -24,14 +26,14 @@ const {
     'text-center': isCentered,
   }}
 >
-  {title && <h1>{title}</h1>}
+  {title && <h1 class="font-display font-bold text-5xl md:text-7xl glitch mb-4" data-text={title}>{title}</h1>}
   {subtitle && <p class="mt--4! op-50 italic">{subtitle}</p>}
   <slot name="head" />
 </header>
 {
   Astro.slots.has('article') && (
     <article
-      class="slide-enter-content prose mx-auto"
+      class:list={['slide-enter-content prose mx-auto', articleClass]}
       data-pagefind-body={isSearchable ? '' : undefined}
       data-pagefind-filter={
         isSearchable && searchFilter ? searchFilter : undefined

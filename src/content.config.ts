@@ -10,6 +10,7 @@ import {
   pageSchema,
   postSchema,
   projectSchema,
+  experienceSchema,
   streamSchema,
   photoSchema,
 } from '~/content/schema'
@@ -20,17 +21,17 @@ const pages = defineCollection({
 })
 
 const home = defineCollection({
-  loader: glob({ base: './src/content/home', pattern: 'index.{md,mdx}' }),
-})
-
-const blog = defineCollection({
-  loader: glob({ base: './src/content/blog', pattern: '**/[^_]*.{md,mdx}' }),
-  schema: postSchema,
+  loader: glob({ base: './src/content/home', pattern: '*.{md,mdx}' }),
 })
 
 const projects = defineCollection({
   loader: file('./src/content/projects/data.json'),
   schema: projectSchema,
+})
+
+const experiences = defineCollection({
+  loader: file('./src/content/experiences/data.json'),
+  schema: experienceSchema,
 })
 
 const releases = defineCollection({
@@ -107,13 +108,13 @@ const feeds = defineCollection({
 export const collections = {
   pages,
   home,
-  blog,
   projects,
-  releases,
-  prs,
-  highlights,
+  experiences,
+  // releases,
+  // prs,
+  // highlights,
   photos,
   changelog,
-  streams,
-  feeds,
+  // streams,
+  // feeds,
 }

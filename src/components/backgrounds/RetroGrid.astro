@@ -1,0 +1,79 @@
+<div class="retro-grid-container">
+  <div class="grid-plane"></div>
+  <div class="horizon-glow"></div>
+</div>
+
+<style>
+  .retro-grid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    background: var(--c-bg);
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+  }
+
+
+  .horizon-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background: radial-gradient(ellipse at bottom, rgba(var(--c-main), 0.2) 0%, transparent 70%);
+    z-index: 1;
+  }
+
+  :global(.dark) .horizon-glow {
+    background: radial-gradient(ellipse at bottom, rgba(var(--c-main), 0.15) 0%, transparent 70%);
+  }
+
+  .grid-plane {
+    position: absolute;
+    bottom: -30%;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    /* Grid lines color - Light Mode */
+    background-image: 
+      linear-gradient(rgba(var(--c-main), 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--c-main), 0.2) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    background-position: center bottom;
+    transform: perspective(50vh) rotateX(60deg);
+    animation: grid-move 20s linear infinite;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+    z-index: 0;
+  }
+
+  :global(.dark) .grid-plane {
+    /* Grid lines color - Dark Mode */
+    background-image: 
+      linear-gradient(rgba(var(--c-main), 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--c-main), 0.3) 1px, transparent 1px);
+  }
+
+  @keyframes grid-move {
+    0% {
+      transform: perspective(50vh) rotateX(60deg) translateY(0);
+    }
+    100% {
+      transform: perspective(50vh) rotateX(60deg) translateY(4rem);
+    }
+  }
+</style>
+
+<script>
+    // Logic to sync --c-main with the current page color if possible?
+    // Actually, Project [id].astro sets the color classes, but doesn't necessarily set a global CSS var easily readable here unless we set it on body or :root.
+    // However, we can use a default color or rely on 'neon-blue' etc which are accessible via unocss vars if defined.
+    // For now, let's assume --c-main needs to be defined or we use a hardcoded fallback/variable.
+    // The user wants the color to match the project.
+    // In [id].astro, we know the color. We can pass it?
+    // BaseLayout -> Background -> RetroGrid.
+    // Props must flow down.
+</script>

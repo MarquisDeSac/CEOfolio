@@ -1,0 +1,33 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro'
+import StandardLayout from '~/layouts/StandardLayout.astro'
+import ProjectCard from '~/components/widgets/ProjectCard.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+
+// Assuming data.json is already sorted by "Newest First" as per Projets.txt instructions.
+// If not, we could sort here.
+
+const title = "Projets"
+const subtitle = "Une sélection de mes réalisations techniques et créatives."
+---
+
+<BaseLayout
+  title={title}
+  description={subtitle}
+  bgType="dot"
+  ogImage={true}
+>
+  <StandardLayout
+    title={title}
+    subtitle={subtitle}
+    isCentered={true}
+  >
+    <div class="flex flex-col gap-6 mt-8 max-w-6xl mx-auto">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} index={index} />
+      ))}
+    </div>
+  </StandardLayout>
+</BaseLayout>

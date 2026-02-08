@@ -46,46 +46,83 @@
     rafId: number | null = null
 
     connectedCallback() {
-      /* Canvas drawing logic (recursively draw each branch) */
+      const R180 = Math.PI
+      const R90 = Math.PI / 2
+      const R15 = Math.PI / 12
+      const COLORS = ['#ff007f50', '#00f3ff50', '#bc13fe50', '#ffffff30']
+      const THRESHOLD = 50 // Increased persistence
+      const LEN = 9 // Longer branches
+      const INTERVAL = 1000 / 40
+
+      const { random } = Math
+      const randomMiddle = () => random() * 0.6 + 0.2
+
+      const width = window.innerWidth
+      const height = window.innerHeight
+      const canvas = this.querySelector('canvas') as HTMLCanvasElement
+      const { ctx } = initCanvas(canvas, width, height)
+      ctx.lineWidth = 1
+      
+      let pendingSteps: Fn[] = []
+      let lastTime = performance.now()
+
+      let lastColor = ''
+      let consecutiveColorCount = 0
+
       const step = (
         x: number,
         y: number,
         rad: number,
-        counter: { value: number } = { value: 0 }
+        counter: { value: number } = { value: 0 },
+        color: string = '' 
       ) => {
-        // drawing a branch
+        if (!color) {
+            let newColor = COLORS[Math.floor(random() * COLORS.length)]
+            // Simple logic: if same as last, increment. If > 2, pick another until diverse.
+            // However, step is recursive and branches. 
+            // A simpler global approach works better for "roots".
+            // Since 'color' is passed down to children, the root color determines the branch color.
+            // So we only need to ensure *roots* are diverse if the user sees mostly white branches.
+            // But if one root is white and huge, it dominates. 
+            // Actually, the user complains about "branches", meaning the lines.
+            // Let's weighted-random the colors to favor neons.
+            
+            // Weighted Random: 30% Pink, 30% Blue, 30% Purple, 10% White.
+             const r = random()
+             if (r < 0.3) newColor = COLORS[0] // Pink
+             else if (r < 0.6) newColor = COLORS[1] // Blue
+             else if (r < 0.9) newColor = COLORS[2] // Purple
+             else newColor = COLORS[3] // White
+             
+             color = newColor
+        }
         const length = random() * LEN
         const [nx, ny] = polar2cart(x, y, length, rad)
+        
         ctx.beginPath()
         ctx.moveTo(x, y)
         ctx.lineTo(nx, ny)
+        ctx.strokeStyle = color
         ctx.stroke()
+        
         counter.value += 1
 
-        // out of bounds then return
-        if (nx < -100 || nx > width + 100 || ny < -100 || ny > height + 100)
-          return
+        if (nx < -100 || nx > width + 100 || ny < -100 || ny > height + 100) return
 
-        // otherwise continue drawring
         const rad1 = rad + random() * R15
         const rad2 = rad - random() * R15
         const rate = counter.value <= THRESHOLD ? 0.8 : 0.5
-        // left branch
-        if (random() < rate)
-          pendingSteps.push(() => step(nx, ny, rad1, counter))
-        // right branch
-        if (random() < rate)
-          pendingSteps.push(() => step(nx, ny, rad2, counter))
+        
+        if (random() < rate) pendingSteps.push(() => step(nx, ny, rad1, counter, color))
+        if (random() < rate) pendingSteps.push(() => step(nx, ny, rad2, counter, color))
       }
 
-      /* RAF callback functions */
       const frame = () => {
         const now = performance.now()
         if (now - lastTime < INTERVAL) return
         lastTime = now
 
         const steps: Fn[] = []
-        // 50% chance to keep the step for the next frame, to create a more organic look
         pendingSteps = pendingSteps.filter((i) => {
           if (Math.random() > 0.5) {
             steps.push(i)
@@ -96,10 +133,8 @@
         steps.forEach((fn) => fn())
       }
 
-      /* Start animation loop */
       const startFrame = () => {
         this.rafId = requestAnimationFrame(() => {
-          // if the condition is satisfied then continue, otherwise cancel the animation loop
           if (pendingSteps.length) {
             frame()
             startFrame()
@@ -112,7 +147,6 @@
         })
       }
 
-      /* Start drawing */
       const start = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -127,31 +161,9 @@
         startFrame()
       }
 
-      const R180 = Math.PI
-      const R90 = Math.PI / 2
-      const R15 = Math.PI / 12
-      const COLOR = '#88888825'
-      const THRESHOLD = 30
-      const LEN = 6
-      const INTERVAL = 1000 / 40
-
-      const { random } = Math
-      const randomMiddle = () => random() * 0.6 + 0.2
-
-      let pendingSteps: Fn[]
-      let lastTime = performance.now()
-
-      const width = window.innerWidth
-      const height = window.innerHeight
-      const canvas = this.querySelector('canvas') as HTMLCanvasElement
-      const { ctx } = initCanvas(canvas, width, height)
-      ctx.lineWidth = 1
-      ctx.strokeStyle = COLOR
-
       start()
     }
 
-    // after switching pages, stop the last drawing that was started but has not yet finished.
     disconnectedCallback() {
       if (this.rafId) {
         cancelAnimationFrame(this.rafId)

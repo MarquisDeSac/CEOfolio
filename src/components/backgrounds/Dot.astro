@@ -24,7 +24,7 @@
         const height = window.innerHeight
 
         const existingPoints = new Set()
-        const points: { x: number; y: number; opacity: number }[] = []
+        const points: { x: number; y: number; opacity: number; color: number[] }[] = []
 
         function getForceOnPoint(x: number, y: number, z: number) {
           return (p.noise(x / SCALE, y / SCALE, z) - 0.5) * 2 * p.TWO_PI
@@ -34,13 +34,24 @@
           return (p.noise(x / SCALE, y / SCALE, t * 2) + 0.5) * LENGTH
         }
 
+        const NEON_COLORS = [
+          [255, 0, 127],   // Neon Pink #ff007f
+          [0, 243, 255],   // Electric Blue #00f3ff
+          [188, 19, 254],  // Sunset Purple #bc13fe
+        ]
+
         function addPoints() {
           for (let x = -SPACING / 2; x < width + SPACING; x += SPACING) {
             for (let y = -SPACING / 2; y < height + SPACING; y += SPACING) {
               const id = `${x}-${y}`
               if (existingPoints.has(id)) continue
               existingPoints.add(id)
-              points.push({ x, y, opacity: Math.random() * 0.5 + 0.5 })
+              points.push({ 
+                x, 
+                y, 
+                opacity: Math.random() * 0.5 + 0.5,
+                color: NEON_COLORS[Math.floor(Math.random() * NEON_COLORS.length)]
+              })
             }
           }
         }
@@ -56,19 +67,19 @@
 
           const t = +new Date() / 10000
           for (const point of points) {
-            const { x, y } = point
+            const { x, y, color } = point
             const rad = getForceOnPoint(x, y, t)
             const length = getLength(x, y, t)
             const nx = x + p.cos(rad) * length
             const ny = y + p.sin(rad) * length
 
-            const isDark = document.documentElement.classList.contains('dark')
-            const color = isDark ? 55 : 200
+            // const isDark = document.documentElement.classList.contains('dark')
+            // Neons are always visible, just adjust opacity
             p.stroke(
-              color,
-              color,
-              color,
-              (Math.abs(p.cos(rad)) * 0.8 + 0.2) * point.opacity * 255
+              color[0],
+              color[1],
+              color[2],
+              (Math.abs(p.cos(rad)) * 0.8 + 0.2) * point.opacity * 200 // Slightly reduced max alpha
             )
             p.strokeWeight(2)
             p.point(nx, ny)

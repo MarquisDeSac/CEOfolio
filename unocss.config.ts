@@ -50,8 +50,11 @@ const githubSubLogos = githubView.subLogoMatches.map((item) => item[1])
 export default defineConfig({
   // Astro 5 no longer pipes `src/content/**/*.{md,mdx}` through Vite
   content: {
-    filesystem: ['./src/{content,pages}/**/*.{md,mdx}'],
+    filesystem: [
+      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    ],
   },
+
 
   // will be deep-merged to the default theme
   extendTheme: (theme) => {
@@ -60,6 +63,12 @@ export default defineConfig({
       breakpoints: {
         ...theme.breakpoints,
         lgp: '1128px',
+      },
+      colors: {
+        'deep-black': '#050505',
+        'neon-pink': '#ff007f',
+        'neon-blue': '#00f3ff',
+        'sunset-purple': '#bc13fe',
       },
     }
   },
@@ -111,6 +120,7 @@ export default defineConfig({
         sans: 'Inter:400,600,800',
         mono: 'DM Mono:400,600',
         condensed: 'Roboto Condensed',
+        display: 'Space Grotesk:300,500,700',
       },
     }),
   ],
@@ -132,6 +142,15 @@ export default defineConfig({
     'focus:top-1.5',
     'focus:op-20',
 
+    /* Critical Text Colors */
+    'text-black',
+    'text-white',
+    'text-gray-900',
+    'dark:text-white',
+    'dark:text-gray-100',
+    'dark:text-gray-200',
+    'dark:text-gray-300',
+
     /* GithubItem */
     ...githubVersionClass,
     ...githubSubLogos,
@@ -139,5 +158,41 @@ export default defineConfig({
     /* Toc */
     'i-ri-menu-2-fill',
     'i-ri-menu-3-fill',
+
+    /* Header Layout Safety */
+    'flex',
+    'items-center',
+    'justify-between',
+    'justify-end',
+    'gap-6',
+    'gap-4.8',
+    'grid',
+    'grid-flow-col',
+    'w-full',
+    'sticky',
+    'top-0',
+    'z-100',
+    /* Dynamic Header State */
+    'bg-white/1',
+    'dark:bg-[#050505]/1',
+    'backdrop-blur-xl',
+    'bg-transparent',
+    /* Dynamic Color Classes for Projects */
+    ...['neon-blue', 'neon-pink', 'sunset-purple'].flatMap(c => [
+      `text-${c}`,
+      `bg-${c}`,
+      `bg-${c}/5`,
+      `bg-${c}/10`,
+      `bg-${c}/20`,
+      `border-${c}`,
+      `border-${c}/10`,
+      `border-${c}/20`,
+      `border-${c}/30`,
+      `hover:border-${c}`,
+      `hover:text-${c}`,
+      `hover:bg-${c}/10`,
+      `from-${c}/5`,
+      `from-${c}/10`,
+    ]),
   ],
 })

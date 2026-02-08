@@ -1,0 +1,73 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div id="custom-cursor" class:list={["fixed top-0 left-0 w-8 h-8 pointer-events-none", className]} style="z-index: 2147483647;">
+  <div class="cursor-dot absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full drop-shadow-[0_0_5px_rgba(255,0,127,1)]" style="background-color: #ff007f;"></div>
+  <div class="cursor-ring absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border rounded-full transition-all duration-100 ease-out opacity-80" style="border-color: #00f3ff;"></div>
+</div>
+
+<script>
+  function initCursor() {
+    const cursor = document.getElementById('custom-cursor');
+    const ring = cursor?.querySelector('.cursor-ring');
+    
+    if (!cursor || !ring) {
+      console.warn('Custom Cursor elements not found');
+      return;
+    }
+
+    console.log('Custom Cursor initialized'); 
+    
+    // Initial position off-screen
+    cursor.style.transform = `translate3d(-100px, -100px, 0)`;
+
+    const moveCursor = (e: MouseEvent) => {
+      // Direct update for instant response
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    };
+
+    document.addEventListener('mousemove', moveCursor);
+
+    // Hover effects logic
+    const addHover = () => {
+      ring.classList.add('scale-150', 'bg-electric-blue/20');
+    };
+    const removeHover = () => {
+      ring.classList.remove('scale-150', 'bg-electric-blue/20');
+    };
+
+    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .interactive');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', addHover);
+      el.addEventListener('mouseleave', removeHover);
+    });
+
+    // Cleanup function for View Transitions
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+      interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', addHover);
+        el.removeEventListener('mouseleave', removeHover);
+      });
+    };
+  }
+
+  // Init on load
+  let cleanup = initCursor();
+
+  // Re-init on View Transition navigation
+  document.addEventListener('astro:after-swap', () => {
+    if (cleanup) cleanup();
+    cleanup = initCursor();
+  });
+</script>
+
+<style>
+  #custom-cursor {
+    pointer-events: none;
+    z-index: 2147483647 !important;
+    will-change: transform;
+    mix-blend-mode: difference; /* Optional: ensures visibility on all backgrounds */
+  }
+</style>

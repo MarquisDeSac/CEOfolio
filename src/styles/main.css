@@ -1,8 +1,8 @@
 :root {
-  --c-bg: #fff;
+  --c-bg: #FCFCFC;
   --c-scrollbar: #ddd;
   --c-scrollbar-hover: #bbb;
-  --c-text: #000;
+  --c-text: #111;
 }
 
 :root.dark {
@@ -10,6 +10,24 @@
   --c-scrollbar: #222;
   --c-scrollbar-hover: #444;
   --c-text: #fff;
+  --c-text: #fff;
+}
+
+/* Robust Utilities for Light/Dark Text */
+.u-text-main {
+  color: #111 !important;
+}
+
+html.dark .u-text-main {
+  color: #fff !important;
+}
+
+.u-text-muted {
+  color: #444 !important;
+}
+
+html.dark .u-text-muted {
+  color: #ddd !important;
 }
 
 html {
@@ -25,6 +43,34 @@ html:has(#bg-rose) {
 body {
   overflow-x: hidden;
   overflow-y: scroll;
+  cursor: none;
+  /* Keep none to hide default */
+}
+
+/* Restore cursor for dialogs because they sit in Top Layer above custom cursor */
+dialog {
+  cursor: auto !important;
+}
+
+/* Hide custom cursor when dialog is open to prevent ghosting behind modal */
+body:has(dialog[open]) #custom-cursor {
+  opacity: 0 !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  /* High z-index but below cursor */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  /* Lower opacity but Screen mode makes it visible on black */
+  mix-blend-mode: screen;
 }
 
 ::selection {
@@ -82,74 +128,92 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   body:not([data-no-sliding]) .slide-enter,
-  body:not([data-no-sliding]) .slide-enter-content > *:not(aside) {
+  body:not([data-no-sliding]) .slide-enter-content>*:not(aside) {
     --enter-initial: 0ms;
     --enter-stage: 0;
     animation: slide-enter 1s both 1;
-    animation-delay: calc(
-      var(--enter-initial) + var(--enter-step) * var(--enter-stage)
-    );
+    animation-delay: calc(var(--enter-initial) + var(--enter-step) * var(--enter-stage));
   }
 
-  .slide-enter-content > *:nth-child(1) {
+  .slide-enter-content>*:nth-child(1) {
     --enter-stage: 1 !important;
   }
-  .slide-enter-content > *:nth-child(2) {
+
+  .slide-enter-content>*:nth-child(2) {
     --enter-stage: 2 !important;
   }
-  .slide-enter-content > *:nth-child(3) {
+
+  .slide-enter-content>*:nth-child(3) {
     --enter-stage: 3 !important;
   }
-  .slide-enter-content > *:nth-child(4) {
+
+  .slide-enter-content>*:nth-child(4) {
     --enter-stage: 4 !important;
   }
-  .slide-enter-content > *:nth-child(5) {
+
+  .slide-enter-content>*:nth-child(5) {
     --enter-stage: 5 !important;
   }
-  .slide-enter-content > *:nth-child(6) {
+
+  .slide-enter-content>*:nth-child(6) {
     --enter-stage: 6 !important;
   }
-  .slide-enter-content > *:nth-child(7) {
+
+  .slide-enter-content>*:nth-child(7) {
     --enter-stage: 7 !important;
   }
-  .slide-enter-content > *:nth-child(8) {
+
+  .slide-enter-content>*:nth-child(8) {
     --enter-stage: 8 !important;
   }
-  .slide-enter-content > *:nth-child(9) {
+
+  .slide-enter-content>*:nth-child(9) {
     --enter-stage: 9 !important;
   }
-  .slide-enter-content > *:nth-child(10) {
+
+  .slide-enter-content>*:nth-child(10) {
     --enter-stage: 10 !important;
   }
-  .slide-enter-content > *:nth-child(11) {
+
+  .slide-enter-content>*:nth-child(11) {
     --enter-stage: 11 !important;
   }
-  .slide-enter-content > *:nth-child(12) {
+
+  .slide-enter-content>*:nth-child(12) {
     --enter-stage: 12 !important;
   }
-  .slide-enter-content > *:nth-child(13) {
+
+  .slide-enter-content>*:nth-child(13) {
     --enter-stage: 13 !important;
   }
-  .slide-enter-content > *:nth-child(14) {
+
+  .slide-enter-content>*:nth-child(14) {
     --enter-stage: 14 !important;
   }
-  .slide-enter-content > *:nth-child(15) {
+
+  .slide-enter-content>*:nth-child(15) {
     --enter-stage: 15 !important;
   }
-  .slide-enter-content > *:nth-child(16) {
+
+  .slide-enter-content>*:nth-child(16) {
     --enter-stage: 16 !important;
   }
-  .slide-enter-content > *:nth-child(17) {
+
+  .slide-enter-content>*:nth-child(17) {
     --enter-stage: 17 !important;
   }
-  .slide-enter-content > *:nth-child(18) {
+
+  .slide-enter-content>*:nth-child(18) {
     --enter-stage: 18 !important;
   }
-  .slide-enter-content > *:nth-child(19) {
+
+  .slide-enter-content>*:nth-child(19) {
     --enter-stage: 19 !important;
   }
-  .slide-enter-content > *:nth-child(20) {
+
+  .slide-enter-content>*:nth-child(20) {
     --enter-stage: 20 !important;
   }
 }
@@ -182,6 +246,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -191,6 +256,7 @@ body {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -286,4 +352,207 @@ mark.pagefind-highlight {
   text-transform: uppercase;
 
   --uno: 'b-[#0000002e] bg-[#ffffffd9] dark:b-[#ffffff38] dark:bg-[#ffffff0F]';
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  color: var(--c-text);
+  letter-spacing: -0.05em;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff007f;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #00f3ff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(48px, 9999px, 81px, 0);
+  }
+
+  5% {
+    clip: rect(32px, 9999px, 86px, 0);
+  }
+
+  10% {
+    clip: rect(61px, 9999px, 47px, 0);
+  }
+
+  15% {
+    clip: rect(10px, 9999px, 20px, 0);
+  }
+
+  20% {
+    clip: rect(79px, 9999px, 12px, 0);
+  }
+
+  25% {
+    clip: rect(13px, 9999px, 60px, 0);
+  }
+
+  30% {
+    clip: rect(58px, 9999px, 66px, 0);
+  }
+
+  35% {
+    clip: rect(78px, 9999px, 47px, 0);
+  }
+
+  40% {
+    clip: rect(41px, 9999px, 53px, 0);
+  }
+
+  45% {
+    clip: rect(76px, 9999px, 3px, 0);
+  }
+
+  50% {
+    clip: rect(2px, 9999px, 90px, 0);
+  }
+
+  55% {
+    clip: rect(53px, 9999px, 2px, 0);
+  }
+
+  60% {
+    clip: rect(29px, 9999px, 69px, 0);
+  }
+
+  65% {
+    clip: rect(68px, 9999px, 5px, 0);
+  }
+
+  70% {
+    clip: rect(21px, 9999px, 92px, 0);
+  }
+
+  75% {
+    clip: rect(98px, 9999px, 15px, 0);
+  }
+
+  80% {
+    clip: rect(25px, 9999px, 83px, 0);
+  }
+
+  85% {
+    clip: rect(56px, 9999px, 7px, 0);
+  }
+
+  90% {
+    clip: rect(12px, 9999px, 56px, 0);
+  }
+
+  95% {
+    clip: rect(64px, 9999px, 13px, 0);
+  }
+
+  100% {
+    clip: rect(39px, 9999px, 85px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+  }
+
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+  }
+
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+  }
+
+  15% {
+    clip: rect(73px, 9999px, 20px, 0);
+  }
+
+  20% {
+    clip: rect(1px, 9999px, 51px, 0);
+  }
+
+  25% {
+    clip: rect(42px, 9999px, 16px, 0);
+  }
+
+  30% {
+    clip: rect(67px, 9999px, 23px, 0);
+  }
+
+  35% {
+    clip: rect(11px, 9999px, 84px, 0);
+  }
+
+  40% {
+    clip: rect(90px, 9999px, 63px, 0);
+  }
+
+  45% {
+    clip: rect(27px, 9999px, 14px, 0);
+  }
+
+  50% {
+    clip: rect(7px, 9999px, 76px, 0);
+  }
+
+  55% {
+    clip: rect(98px, 9999px, 32px, 0);
+  }
+
+  60% {
+    clip: rect(53px, 9999px, 4px, 0);
+  }
+
+  65% {
+    clip: rect(23px, 9999px, 86px, 0);
+  }
+
+  70% {
+    clip: rect(66px, 9999px, 4px, 0);
+  }
+
+  75% {
+    clip: rect(81px, 9999px, 48px, 0);
+  }
+
+  80% {
+    clip: rect(15px, 9999px, 81px, 0);
+  }
+
+  85% {
+    clip: rect(54px, 9999px, 63px, 0);
+  }
+
+  90% {
+    clip: rect(33px, 9999px, 71px, 0);
+  }
+
+  95% {
+    clip: rect(2px, 9999px, 44px, 0);
+  }
+
+  100% {
+    clip: rect(47px, 9999px, 56px, 0);
+  }
 }
