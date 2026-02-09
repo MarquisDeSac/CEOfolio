@@ -16,6 +16,11 @@ import Aurora from '~/components/backgrounds/Aurora.astro'
 import StaticNoise from '~/components/backgrounds/StaticNoise.astro'
 
 
+import Equalizer from '~/components/backgrounds/Equalizer.astro'
+import Constellation from '~/components/backgrounds/Constellation.astro'
+import HoloMesh from '~/components/backgrounds/HoloMesh.astro'
+
+
 interface Props {
   type: string
 }
@@ -36,4 +41,7 @@ const { type } = Astro.props
 {type === 'circuit' && <Circuit />}
 {type === 'aurora' && <Aurora />}
 {type === 'static-noise' && <StaticNoise />}
+{type === 'equalizer' && <Equalizer />}
+{type === 'constellation' && <Constellation />}
+{type === 'holo-mesh' && <HoloMesh />}
 

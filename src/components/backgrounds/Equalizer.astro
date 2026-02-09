@@ -1,0 +1,73 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-[#050505] overflow-hidden">
+  <canvas id="equalizer-canvas" class="absolute bottom-0 left-0 w-full h-[40vh] opacity-30"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-t from-transparent via-[#050505] to-[#050505] opacity-50"></div>
+</div>
+
+<script>
+  function initEqualizer() {
+    const canvas = document.getElementById('equalizer-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight * 0.4 // Only bottom 40%
+
+    canvas.width = width
+    canvas.height = height
+
+    const barCount = 40
+    const barWidth = width / barCount
+    const bars: { h: number, speed: number }[] = []
+
+    for (let i = 0; i < barCount; i++) {
+      bars.push({
+        h: Math.random() * height,
+        speed: Math.random() * 2 + 1
+      })
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height)
+
+      for (let i = 0; i < barCount; i++) {
+        const bar = bars[i]
+        
+        // Simulating audio visualization
+        bar.h += Math.sin(Date.now() * 0.005 * bar.speed + i) * 2
+
+        // Clamp height
+        if (bar.h < 0) bar.h = 0
+        if (bar.h > height) bar.h = height
+
+        const x = i * barWidth
+        const y = height - bar.h
+
+        const gradient = ctx.createLinearGradient(x, height, x, y)
+        gradient.addColorStop(0, '#ff007f') // Pink bottom
+        gradient.addColorStop(1, '#00f3ff') // Cyan top
+
+        ctx.fillStyle = gradient
+        ctx.fillRect(x, y, barWidth - 4, bar.h) // -4 for gap
+      }
+
+      requestAnimationFrame(draw)
+    }
+    
+    window.addEventListener('resize', () => {
+        width = window.innerWidth
+        height = window.innerHeight * 0.4
+        canvas.width = width
+        canvas.height = height
+    })
+
+    draw()
+  }
+
+  document.addEventListener('astro:page-load', initEqualizer)
+  initEqualizer()
+</script>

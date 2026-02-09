@@ -53,29 +53,39 @@
         if (attempts > 10) return
       }
 
+      const colors = ['#ff007f', '#00f3ff', '#bc13fe'] // Pink, Cyan, Purple
+
       paths.push({
         start,
         end,
         progress: 0,
-        speed: Math.random() * 0.02 + 0.01
+        speed: Math.random() * 0.005 + 0.002, // Much slower
+        color: colors[Math.floor(Math.random() * colors.length)]
       })
     }
 
-    // Initial paths
-    for (let i = 0; i < 10; i++) createPath()
+    // Initial paths (staggered spawn)
+    function spawnInitial() {
+        if (paths.length < 15) {
+            createPath()
+            setTimeout(spawnInitial, 200)
+        }
+    }
+    spawnInitial()
 
     function draw() {
       // Fade out effect
       ctx.fillStyle = 'rgba(17, 17, 17, 0.1)'
       ctx.fillRect(0, 0, width, height)
 
-      ctx.strokeStyle = '#bc13fe' // Purple/Diesel
       ctx.lineWidth = 2
       ctx.lineCap = 'round'
 
       for (let i = paths.length - 1; i >= 0; i--) {
         const path = paths[i]
         path.progress += path.speed
+
+        ctx.strokeStyle = path.color // Use path color
 
         const currentX = path.start.x + (path.end.x - path.start.x) * path.progress
         const currentY = path.start.y + (path.end.y - path.start.y) * path.progress
@@ -102,14 +112,14 @@
         }
 
         ctx.shadowBlur = 5
-        ctx.shadowColor = '#bc13fe'
+        ctx.shadowColor = path.color
         ctx.stroke()
         ctx.shadowBlur = 0
 
         if (path.progress >= 1) {
           // Draw a "terminal" dot
           ctx.beginPath()
-          ctx.fillStyle = '#00f3ff' // Cyan terminal
+          ctx.fillStyle = path.color
           ctx.arc(path.end.x, path.end.y, 3, 0, Math.PI * 2)
           ctx.fill()
           

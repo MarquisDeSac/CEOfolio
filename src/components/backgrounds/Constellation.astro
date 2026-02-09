@@ -1,0 +1,96 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-[#050505] overflow-hidden">
+  <canvas id="constellation-canvas" class="w-full h-full"></canvas>
+</div>
+
+<script>
+  function initConstellation() {
+    const canvas = document.getElementById('constellation-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    canvas.width = width
+    canvas.height = height
+
+    interface Point {
+      x: number
+      y: number
+      vx: number
+      vy: number
+    }
+
+    const points: Point[] = []
+    const count = 80
+
+    for (let i = 0; i < count; i++) {
+      points.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5
+      })
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height)
+
+      // Updates
+      for (const p of points) {
+        p.x += p.vx
+        p.y += p.vy
+
+        // Bounce
+        if (p.x < 0 || p.x > width) p.vx *= -1
+        if (p.y < 0 || p.y > height) p.vy *= -1
+      }
+
+      // Draw Connections first
+      ctx.lineWidth = 1
+      for (let i = 0; i < count; i++) {
+        for (let j = i + 1; j < count; j++) {
+          const dx = points[i].x - points[j].x
+          const dy = points[i].y - points[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+
+          if (dist < 150) {
+            const alpha = 1 - dist / 150
+            ctx.strokeStyle = `rgba(188, 19, 254, ${alpha * 0.5})` // Sunset purple lines
+            ctx.beginPath()
+            ctx.moveTo(points[i].x, points[i].y)
+            ctx.lineTo(points[j].x, points[j].y)
+            ctx.stroke()
+          }
+        }
+      }
+
+      // Draw Points
+      for (const p of points) {
+        ctx.beginPath()
+        ctx.fillStyle = '#ffffff'
+        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2)
+        ctx.fill()
+      }
+
+      requestAnimationFrame(draw)
+    }
+
+    window.addEventListener('resize', () => {
+        width = window.innerWidth
+        height = window.innerHeight
+        canvas.width = width
+        canvas.height = height
+    })
+
+    draw()
+  }
+
+  document.addEventListener('astro:page-load', initConstellation)
+  initConstellation()
+</script>
