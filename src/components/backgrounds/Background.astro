@@ -4,6 +4,8 @@ import Dot from '~/components/backgrounds/Dot.astro'
 import Rose from '~/components/backgrounds/Rose.astro'
 import Particle from '~/components/backgrounds/Particle.astro'
 import RetroGrid from '~/components/backgrounds/RetroGrid.astro'
+import BitRain from '~/components/backgrounds/BitRain.astro'
+import Sunset from '~/components/backgrounds/Sunset.astro'
 
 
 interface Props {
@@ -18,4 +20,6 @@ const { type } = Astro.props
 {type === 'rose' && <Rose />}
 {type === 'particle' && <Particle />}
 {type === 'retro-grid' && <RetroGrid />}
+{type === 'bit-rain' && <BitRain />}
+{type === 'sunset' && <Sunset />}
 

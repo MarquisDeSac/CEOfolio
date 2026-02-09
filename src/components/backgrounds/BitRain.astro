@@ -1,0 +1,75 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1]">
+  <canvas id="bit-rain-canvas" class="w-full h-full opacity-30 dark:opacity-20"></canvas>
+</div>
+
+<script>
+  function initBitRain() {
+    const canvas = document.getElementById('bit-rain-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    canvas.width = width
+    canvas.height = height
+
+    const fontSize = 14
+    const columns = Math.ceil(width / fontSize)
+    const drops: number[] = []
+
+    // Initialize drops
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -100 // Start above screen
+    }
+
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
+    const colors = ['#ff007f', '#00f3ff', '#bc13fe'] // City Pop Colors
+
+    function draw() {
+      // Create trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      ctx.fillRect(0, 0, width, height)
+
+      ctx.font = `${fontSize}px monospace`
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)]
+        
+        // Randomly pick color
+        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)]
+        
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize)
+
+        // Reset drop to top randomly
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+          drops[i] = 0
+        }
+
+        drops[i]++
+      }
+
+      requestAnimationFrame(draw)
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas.width = width
+      canvas.height = height
+      // Re-initialize drops count on resize might be needed but simple resize is okay for now
+    })
+
+    draw()
+  }
+
+  // Run on load and view transitions
+  document.addEventListener('astro:page-load', initBitRain)
+  initBitRain()
+</script>

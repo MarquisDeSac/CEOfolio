@@ -1,0 +1,18 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#2b1055] via-[#7597de] to-[#ff007f] opacity-20 dark:opacity-30 blur-3xl animate-pulse-slow"></div>
+  <div class="absolute bottom-[-20%] left-[-20%] right-[-20%] h-[50%] bg-[#ff007f] opacity-20 blur-[100px] rounded-[50%]"></div>
+</div>
+
+<style>
+  .animate-pulse-slow {
+    animation: pulse-slow 10s infinite alternate;
+  }
+
+  @keyframes pulse-slow {
+    0% { opacity: 0.2; transform: scale(1); }
+    100% { opacity: 0.3; transform: scale(1.05); }
+  }
+</style>
