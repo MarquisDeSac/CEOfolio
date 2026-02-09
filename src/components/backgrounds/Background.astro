@@ -8,6 +8,14 @@ import BitRain from '~/components/backgrounds/BitRain.astro'
 import Sunset from '~/components/backgrounds/Sunset.astro'
 
 
+import NightDrive from '~/components/backgrounds/NightDrive.astro'
+import Starfield from '~/components/backgrounds/Starfield.astro'
+import LavaLamp from '~/components/backgrounds/LavaLamp.astro'
+import Circuit from '~/components/backgrounds/Circuit.astro'
+import Aurora from '~/components/backgrounds/Aurora.astro'
+import StaticNoise from '~/components/backgrounds/StaticNoise.astro'
+
+
 interface Props {
   type: string
 }
@@ -22,4 +30,10 @@ const { type } = Astro.props
 {type === 'retro-grid' && <RetroGrid />}
 {type === 'bit-rain' && <BitRain />}
 {type === 'sunset' && <Sunset />}
+{type === 'night-drive' && <NightDrive />}
+{type === 'starfield' && <Starfield />}
+{type === 'lava-lamp' && <LavaLamp />}
+{type === 'circuit' && <Circuit />}
+{type === 'aurora' && <Aurora />}
+{type === 'static-noise' && <StaticNoise />}
 

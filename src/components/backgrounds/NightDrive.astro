@@ -1,0 +1,95 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-[#050505] overflow-hidden">
+  <!-- Horizon Line -->
+  <div class="absolute bottom-1/3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50 blur-sm"></div>
+  
+  <!-- Moving Lights Canvas -->
+  <canvas id="night-drive-canvas" class="w-full h-full opacity-60"></canvas>
+  
+  <!-- Vignette -->
+  <div class="absolute inset-0 bg-radial-gradient from-transparent to-black opacity-80"></div>
+</div>
+
+<script>
+  function initNightDrive() {
+    const canvas = document.getElementById('night-drive-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    canvas.width = width
+    canvas.height = height
+
+    const lights: { x: number, y: number, radius: number, speed: number, color: string }[] = []
+    const colors = ['#ff007f', '#00f3ff', '#bc13fe', '#ffe600'] // Pink, Cyan, Purple, Yellow
+
+    // Initialize lights
+    for (let i = 0; i < 50; i++) {
+      lights.push({
+        x: Math.random() * width,
+        y: Math.random() * height * 0.6 + height * 0.4, // Lower 60%
+        radius: Math.random() * 4 + 1,
+        speed: Math.random() * 4 + 2,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      })
+    }
+
+    function draw() {
+      // Clear with trail effect
+      ctx.fillStyle = 'rgba(5, 5, 5, 0.1)'
+      ctx.fillRect(0, 0, width, height)
+
+      for (const light of lights) {
+        ctx.beginPath()
+        ctx.arc(light.x, light.y, light.radius, 0, Math.PI * 2)
+        ctx.fillStyle = light.color
+        
+        // Add glow
+        ctx.shadowBlur = 10
+        ctx.shadowColor = light.color
+        
+        ctx.fill()
+        ctx.shadowBlur = 0 // Reset for next operations
+
+        // Move light horizontally
+        light.x -= light.speed // Move left like passing street lights
+
+        // Reset if off screen
+        if (light.x < -20) {
+          light.x = width + 20
+          light.y = Math.random() * height * 0.5 + height * 0.5 // Keep in lower half
+           // Perspective effect: lights closer to bottom are faster and larger
+           const perspective = (light.y - height * 0.5) / (height * 0.5)
+           light.speed = 2 + perspective * 10
+           light.radius = 1 + perspective * 5
+        }
+      }
+
+      requestAnimationFrame(draw)
+    }
+
+    window.addEventListener('resize', () => {
+        width = window.innerWidth
+        height = window.innerHeight
+        canvas.width = width
+        canvas.height = height
+    })
+
+    draw()
+  }
+
+  document.addEventListener('astro:page-load', initNightDrive)
+  initNightDrive()
+</script>
+
+<style>
+    .bg-radial-gradient {
+        background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+    }
+</style>
