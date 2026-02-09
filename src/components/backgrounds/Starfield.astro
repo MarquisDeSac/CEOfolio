@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-[#020205] overflow-hidden">
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-white dark:bg-[#020205] transition-colors duration-500 overflow-hidden">
   <canvas id="starfield-canvas" class="w-full h-full"></canvas>
 </div>
 
@@ -34,9 +34,14 @@
       })
     }
 
+    const DARK_BG = '#020205'
+    const LIGHT_BG = '#ffffff'
+
     function draw() {
-      ctx.fillStyle = '#020205' // Deep dark blue/black
-      ctx.fillRect(0, 0, width, height)
+      // Clear canvas (background handles color)
+      ctx.clearRect(0, 0, width, height)
+
+      const isDark = document.documentElement.classList.contains('dark')
 
       for (const star of stars) {
         star.z -= speed
@@ -52,15 +57,22 @@
         const y = (star.y - centerY) * (width / star.z) + centerY
         const s = (width / star.z)
 
-        // PS2 boot vibe: slight blue/purple tint, glowing
+        // Light mode stars: Darker blue
+        // Dark mode stars: Light blue/white
+        const color = isDark ? `rgba(200, 220, 255, ${star.o})` : `rgba(20, 40, 100, ${star.o})`
+        const glow = isDark ? 'rgba(60, 100, 255, 0.5)' : 'rgba(100, 150, 255, 0.3)'
+
         ctx.beginPath()
-        ctx.fillStyle = `rgba(200, 220, 255, ${star.o})`
+        ctx.fillStyle = color
         ctx.shadowBlur = s * 2
-        ctx.shadowColor = 'rgba(60, 100, 255, 0.5)'
+        ctx.shadowColor = glow
         ctx.arc(x, y, s < 0 ? 0 : s, 0, Math.PI * 2)
         ctx.fill()
         ctx.shadowBlur = 0
       }
+
+      requestAnimationFrame(draw)
+    }
 
       requestAnimationFrame(draw)
     }

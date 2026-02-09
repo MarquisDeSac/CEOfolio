@@ -1,0 +1,156 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-white dark:bg-[#050505] transition-colors duration-500 overflow-hidden">
+  <canvas id="neon-plum-canvas" class="w-full h-full opacity-60 dark:opacity-50"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent dark:from-[#050505] dark:via-transparent dark:to-transparent"></div>
+</div>
+
+<script>
+  function initNeonPlum() {
+    const canvas = document.getElementById('neon-plum-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight
+    
+    // Initial resize
+    canvas.width = width
+    canvas.height = height
+
+    let stopped = false
+
+    // Colors
+    // Dark Mode: Neon Pink, Cyan, Purple
+    const DARK_COLORS = ['#ff007f', '#00f3ff', '#bc13fe']
+    // Light Mode: Darker variation for contrast
+    const LIGHT_COLORS = ['#d10068', '#00abc0', '#8b0eec']
+
+    function getColors() {
+      const isDark = document.documentElement.classList.contains('dark')
+      return isDark ? DARK_COLORS : LIGHT_COLORS
+    }
+
+    const r180 = Math.PI
+    const r90 = Math.PI / 2
+    const r15 = Math.PI / 12
+
+    let steps: Function[] = []
+    let prevSteps: Function[] = []
+    
+    let iterations = 0
+    let rafId: number
+
+    function polar2cart(x = 0, y = 0, r = 0, theta = 0) {
+      const dx = r * Math.cos(theta)
+      const dy = r * Math.sin(theta)
+      return [x + dx, y + dy]
+    }
+
+    function step(x: number, y: number, rad: number, counter: { value: number } = { value: 0 }) {
+      const length = Math.random() * 6
+      
+      const [nx, ny] = polar2cart(x, y, length, rad)
+      
+      ctx.beginPath()
+      ctx.moveTo(x, y)
+      ctx.lineTo(nx, ny)
+      
+      const colors = getColors()
+      // Pick a random color from the palette for this segment/branch
+      // To make it look connected, we ideally pass color down, but random neon segments look cool too (circuit-like)
+      // Let's pass color down for continuity
+      
+      // Actually, let's grab the color from the closure if we want continuity, 
+      // but without changing signature too much, let's just pick one based on position or random
+      ctx.strokeStyle = colors[Math.floor(Math.random() * colors.length)]
+      ctx.lineWidth = 1
+      ctx.stroke()
+
+      const rad1 = rad + Math.random() * r15
+      const rad2 = rad - Math.random() * r15
+
+      // boundary check
+      if (nx < -100 || nx > width + 100 || ny < -100 || ny > height + 100) return
+
+      const rate = counter.value <= 30 ? 0.8 : 0.5
+
+      // Left branch
+      if (Math.random() < rate) {
+        steps.push(() => step(nx, ny, rad1, counter))
+      }
+
+      // Right branch
+      if (Math.random() < rate) {
+        steps.push(() => step(nx, ny, rad2, counter))
+      }
+      
+      counter.value++
+    }
+
+    function frame() {
+        if (stopped) return
+        iterations++
+        prevSteps = steps
+        steps = []
+
+        if (prevSteps.length === 0) {
+            // Stop if no more steps, but maybe keep loop for resize check? 
+            // Better to stop RAF.
+            cancelAnimationFrame(rafId)
+            return
+        }
+
+        // Execute 50% of pending steps per frame for "growth" speed control
+        prevSteps.forEach((i) => {
+            if (Math.random() < 0.5) steps.push(i)
+            else i()
+        })
+        
+        rafId = requestAnimationFrame(frame)
+    }
+
+    function start() {
+       cancelAnimationFrame(rafId)
+       ctx.clearRect(0, 0, width, height)
+       steps = []
+       prevSteps = []
+       iterations = 0
+       stopped = false
+
+       // Start points: Bottom, Left, Right
+       step(width / 2, height, -r90)
+       step(0, height / 2, 0)
+       step(width, height / 2, r180)
+       
+       frame()
+    }
+
+    start()
+
+    // Handle Resize
+    window.addEventListener('resize', () => {
+        width = window.innerWidth
+        height = window.innerHeight
+        canvas.width = width
+        canvas.height = height
+        start()
+    })
+
+    // Handle Theme Change
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+           start() // Restart to pick up new colors
+        }
+      })
+    })
+    observer.observe(document.documentElement, { attributes: true })
+  }
+
+  document.addEventListener('astro:page-load', initNeonPlum)
+  initNeonPlum()
+</script>

@@ -21,6 +21,9 @@ import Constellation from '~/components/backgrounds/Constellation.astro'
 import HoloMesh from '~/components/backgrounds/HoloMesh.astro'
 
 
+import NeonPlum from '~/components/backgrounds/NeonPlum.astro'
+import CityLights from '~/components/backgrounds/CityLights.astro'
+
 interface Props {
   type: string
 }
@@ -35,13 +38,8 @@ const { type } = Astro.props
 {type === 'retro-grid' && <RetroGrid />}
 {type === 'bit-rain' && <BitRain />}
 {type === 'sunset' && <Sunset />}
-{type === 'night-drive' && <NightDrive />}
 {type === 'starfield' && <Starfield />}
-{type === 'lava-lamp' && <LavaLamp />}
-{type === 'circuit' && <Circuit />}
-{type === 'aurora' && <Aurora />}
-{type === 'static-noise' && <StaticNoise />}
-{type === 'equalizer' && <Equalizer />}
 {type === 'constellation' && <Constellation />}
-{type === 'holo-mesh' && <HoloMesh />}
+{type === 'neon-plum' && <NeonPlum />}
+{type === 'city-lights' && <CityLights />}
 

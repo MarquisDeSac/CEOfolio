@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-[#050505] overflow-hidden">
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-white dark:bg-[#050505] transition-colors duration-500 overflow-hidden">
   <canvas id="constellation-canvas" class="w-full h-full"></canvas>
 </div>
 
@@ -28,15 +28,35 @@
 
     const points: Point[] = []
     const count = 80
-
-    for (let i = 0; i < count; i++) {
-      points.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5
-      })
+    
+    // Colors
+    const DARK_COLORS = ['#ff007f', '#00f3ff', '#bc13fe']
+    const LIGHT_COLORS = ['#d10068', '#00abc0', '#8b0eec']
+    
+    function getColors() {
+       return document.documentElement.classList.contains('dark') ? DARK_COLORS : LIGHT_COLORS
     }
+    
+    function getLineColor() {
+       return document.documentElement.classList.contains('dark') ? 'rgba(188, 19, 254, ' : 'rgba(139, 14, 236, '
+    }
+
+    // Init Points with fixed colors
+    function initPoints() {
+        points.length = 0
+        const colors = getColors()
+        for (let i = 0; i < count; i++) {
+            points.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                // Assign a persistent color to each dot
+                color: colors[Math.floor(Math.random() * colors.length)]
+            })
+        }
+    }
+    initPoints()
 
     function draw() {
       ctx.clearRect(0, 0, width, height)
@@ -53,6 +73,8 @@
 
       // Draw Connections first
       ctx.lineWidth = 1
+      const lineBase = getLineColor()
+      
       for (let i = 0; i < count; i++) {
         for (let j = i + 1; j < count; j++) {
           const dx = points[i].x - points[j].x
@@ -61,7 +83,8 @@
 
           if (dist < 150) {
             const alpha = 1 - dist / 150
-            ctx.strokeStyle = `rgba(188, 19, 254, ${alpha * 0.5})` // Sunset purple lines
+            // Use the purple line color but maybe blend? Just standard for now.
+            ctx.strokeStyle = `${lineBase}${alpha * 0.5})` 
             ctx.beginPath()
             ctx.moveTo(points[i].x, points[i].y)
             ctx.lineTo(points[j].x, points[j].y)
@@ -73,7 +96,7 @@
       // Draw Points
       for (const p of points) {
         ctx.beginPath()
-        ctx.fillStyle = '#ffffff'
+        ctx.fillStyle = (p as any).color
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2)
         ctx.fill()
       }
@@ -86,7 +109,14 @@
         height = window.innerHeight
         canvas.width = width
         canvas.height = height
+        initPoints()
     })
+    
+     // Handle Theme Change
+    const observer = new MutationObserver(() => {
+       initPoints()
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
 
     draw()
   }

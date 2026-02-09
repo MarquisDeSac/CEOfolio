@@ -1,0 +1,105 @@
+---
+---
+
+<div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden z-[-1] bg-white dark:bg-[#050510] transition-colors duration-500 overflow-hidden">
+  <canvas id="city-lights-canvas" class="w-full h-full opacity-60"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-[#050510] opacity-80"></div>
+</div>
+
+<script>
+  function initCityLights() {
+    const canvas = document.getElementById('city-lights-canvas') as HTMLCanvasElement
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = window.innerWidth
+    let height = window.innerHeight
+
+    canvas.width = width
+    canvas.height = height
+
+    const lights: { x: number, y: number, radius: number, alpha: number, speed: number, color: string }[] = []
+    
+    // Colors
+    const DARK_COLORS = ['#ff007f', '#00f3ff', '#bc13fe', '#ffe600']
+    const LIGHT_COLORS = ['#ff007f', '#00abc0', '#8b0eec', '#ffaa00']
+
+    function getColors() {
+       return document.documentElement.classList.contains('dark') ? DARK_COLORS : LIGHT_COLORS
+    }
+
+    // Initialize distant lights
+    for (let i = 0; i < 100; i++) {
+      const colors = getColors()
+      lights.push({
+        x: Math.random() * width,
+        y: Math.random() * height * 0.5 + height * 0.5, // Bottom half
+        radius: Math.random() * 2 + 0.5,
+        alpha: Math.random(),
+        speed: (Math.random() - 0.5) * 0.02, // Very slow horizontal drift
+        color: colors[Math.floor(Math.random() * colors.length)]
+      })
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height)
+      
+      // Draw Lights
+      for (const light of lights) {
+         light.alpha += (Math.random() - 0.5) * 0.05
+         if (light.alpha < 0) light.alpha = 0
+         if (light.alpha > 1) light.alpha = 1
+         
+         light.x += light.speed
+
+         ctx.beginPath()
+         ctx.arc(light.x, light.y, light.radius, 0, Math.PI * 2)
+         ctx.fillStyle = light.color
+         ctx.globalAlpha = light.alpha
+         ctx.fill()
+         
+         // Glow
+         ctx.shadowBlur = 4
+         ctx.shadowColor = light.color
+         
+         ctx.shadowBlur = 0
+         ctx.globalAlpha = 1
+      }
+      
+      requestAnimationFrame(draw)
+    }
+
+    window.addEventListener('resize', () => {
+        width = window.innerWidth
+        height = window.innerHeight
+        canvas.width = width
+        canvas.height = height
+    })
+    
+    // Handle Theme Change
+    const observer = new MutationObserver(() => {
+       // Re-assign colors if needed, but since we pick from getColors() at init, we might need to update existing lights
+       // or just quick restart. Let's restart.
+       lights.length = 0
+       const colors = getColors()
+       for (let i = 0; i < 100; i++) {
+        lights.push({
+            x: Math.random() * width,
+            y: Math.random() * height * 0.5 + height * 0.5,
+            radius: Math.random() * 2 + 0.5,
+            alpha: Math.random(),
+            speed: (Math.random() - 0.5) * 0.02,
+            color: colors[Math.floor(Math.random() * colors.length)]
+        })
+       }
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    draw()
+  }
+
+  document.addEventListener('astro:page-load', initCityLights)
+  initCityLights()
+</script>
