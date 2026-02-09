@@ -14,7 +14,7 @@ const { id, data } = project
 const colors = ['neon-blue', 'neon-pink', 'sunset-purple']
 const color = colors[index % 3]
 
-const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'fr'
+const lang = Astro.url.pathname.split('/').includes('en') ? 'en' : 'fr'
 
 const skills = (lang === 'en' ? data.skills_en : data.skills) || data.skills || []
 const displaySkills = skills.slice(0, 5)

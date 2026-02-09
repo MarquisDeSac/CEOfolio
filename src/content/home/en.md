@@ -66,26 +66,26 @@
 
 ### <span class="glitch text-sunset-purple" data-text="Navigation">Navigation</span>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-  <a href="en/projects" class="p-4 pb-8 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline!">
-    <div class="i-ri-gamepad-line text-2xl mb-2 group-hover:scale-110 transition-transform text-sunset-purple"></div>
-    <div class="font-bold">Projects</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+  <a href="en/projects" class="p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2 aspect-square md:aspect-auto">
+    <div class="i-ri-gamepad-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
+    <div class="font-bold text-sm md:text-base">Projects</div>
   </a>
-  <a href="en/experiences" class="p-4 pb-8 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline!">
-    <div class="i-ri-briefcase-line text-2xl mb-2 group-hover:scale-110 transition-transform text-sunset-purple"></div>
-    <div class="font-bold">Experiences</div>
+  <a href="en/experiences" class="p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2 aspect-square md:aspect-auto">
+    <div class="i-ri-briefcase-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
+    <div class="font-bold text-sm md:text-base">Experiences</div>
   </a>
-  <a href="en/parcours" class="p-4 pb-8 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline!">
-    <div class="i-ri-road-map-line text-2xl mb-2 group-hover:scale-110 transition-transform text-sunset-purple"></div>
-    <div class="font-bold">Education</div>
+  <a href="en/parcours" class="p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2 aspect-square md:aspect-auto">
+    <div class="i-ri-road-map-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
+    <div class="font-bold text-sm md:text-base">Education</div>
   </a>
-  <a href="en/skills" class="p-4 pb-8 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline!">
-    <div class="i-ri-code-box-line text-2xl mb-2 group-hover:scale-110 transition-transform text-sunset-purple"></div>
-    <div class="font-bold">Skills</div>
+  <a href="en/skills" class="p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2 aspect-square md:aspect-auto">
+    <div class="i-ri-code-box-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
+    <div class="font-bold text-sm md:text-base">Skills</div>
   </a>
-  <a href="en/contact" class="p-4 pb-8 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline!">
-    <div class="i-ri-mail-send-line text-2xl mb-2 group-hover:scale-110 transition-transform text-sunset-purple"></div>
-    <div class="font-bold">Contact</div>
+  <a href="en/contact" class="p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2 aspect-square md:aspect-auto">
+    <div class="i-ri-mail-send-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
+    <div class="font-bold text-sm md:text-base">Contact</div>
   </a>
 </div>
 

@@ -1,14 +1,15 @@
 ---
 const { pathname } = Astro.url
-const lang = pathname.startsWith('/en') ? 'en' : 'fr'
+const segments = pathname.split('/')
+const lang = segments.includes('en') ? 'en' : 'fr'
 
 const toggleLang = lang === 'fr' ? 'en' : 'fr'
-const targetPath = pathname.replace(`/${lang}`, `/${toggleLang}`) || `/${toggleLang}`
+const targetPath = pathname.replace(`/${lang}`, `/${toggleLang}`)
 ---
 
 <a
   href={targetPath}
-  class="flex items-center justify-center w-8 h-8 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+  class="flex items-center justify-center w-8 h-8 rounded hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-black dark:text-white"
   aria-label={`Switch to ${toggleLang === 'fr' ? 'French' : 'English'}`}
 >
   <span class="font-bold text-sm uppercase">{toggleLang}</span>
