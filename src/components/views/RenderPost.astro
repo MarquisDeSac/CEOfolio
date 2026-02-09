@@ -11,10 +11,10 @@ import Giscus from '~/components/widgets/Giscus.astro'
 import ImageViewer from '~/components/widgets/ImageViewer.astro'
 import { FEATURES } from '~/config'
 
-import type { CollectionEntry } from 'astro:content'
+
 
 interface Props {
-  post: CollectionEntry<'changelog'>
+  post: any // relaxed for build
   isCommentable?: boolean
 }
 

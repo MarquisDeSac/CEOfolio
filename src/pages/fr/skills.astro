@@ -9,7 +9,7 @@ import { parcours } from '~/data/parcours'
 const projects = await getCollection('projects')
 
 // 2. Define Categories and their Keywords (for auto-sorting)
-const categories = {
+const categories: Record<string, { color: string, keywords: string[] }> = {
   'Moteur & Jeu Vidéo': {
     color: 'neon-pink',
     keywords: ['Unity', 'Godot', 'Unreal', 'Game', 'Jeu', 'VR', 'AR', 'XR', 'WebGL', 'Processing', 'Shader', '3D', '2D', 'Level', 'Asset', 'Balance', 'Spatial Audio', 'Locomotion']
@@ -36,7 +36,7 @@ const categories = {
 // Map<SkillName, ListOfVariousItems>
 const skillMap = new Map()
 
-function registerSkill(skillName, sourceItem, type) {
+function registerSkill(skillName: string, sourceItem: any, type: string) {
   const normSkill = skillName.trim()
   if (!skillMap.has(normSkill)) {
     skillMap.set(normSkill, { name: normSkill, items: [] })
@@ -66,7 +66,7 @@ parcours.fr.forEach(p => {
 })
 
 // 4. Sort Skills into Categories
-const categorizedSkills: Record<string, unknown[]> = {}
+const categorizedSkills: Record<string, any[]> = {}
 Object.keys(categories).forEach(k => categorizedSkills[k] = [])
 
 skillMap.forEach((value, key) => {
@@ -114,7 +114,7 @@ const subtitle = "Stack Technique & Savoir-Être"
 
               <!-- Skills Cloud -->
               <div class="flex flex-wrap gap-2 relative z-10">
-                {skills.sort((a,b) => b.items.length - a.items.length).map(skill => (
+                {skills.sort((a: any, b: any) => b.items.length - a.items.length).map(skill => (
                   <button 
                     onclick={`document.getElementById('modal-${skill.name.replace(/[^a-zA-Z0-9-]/g, '-')}')?.showModal()`}
                     class={`px-3 py-1.5 text-xs font-medium rounded-lg border border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/20 u-text-muted hover:text-white hover:bg-${categories[catName].color} hover:border-${categories[catName].color} transition-all cursor-pointer text-left relative group/skill`}
@@ -152,7 +152,7 @@ const subtitle = "Stack Technique & Savoir-Être"
             </h3>
 
             <div class="flex flex-col gap-3 max-h-[60vh] overflow-y-auto custom-scrollbar">
-              {skill.items.map(item => (
+              {skill.items.map((item: any) => (
                 <a href={item.link} class="flex items-center gap-4 p-3 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors group no-underline border border-transparent hover:border-black/5 dark:hover:border-white/5">
                   <div class={`p-2 rounded-lg ${item.sourceType === 'Project' ? 'bg-neon-blue/20 text-neon-blue' : item.sourceType === 'Exp' ? 'bg-neon-pink/20 text-neon-pink' : 'bg-sunset-purple/20 text-sunset-purple'}`}>
                     <div class={item.sourceType === 'Project' ? 'i-ri-folder-line' : item.sourceType === 'Exp' ? 'i-ri-briefcase-line' : 'i-ri-graduation-cap-line'}></div>

@@ -5,7 +5,7 @@ import { SITE } from '~/config'
 import { withBasePath } from '~/utils/path'
 
 export async function GET() {
-  const blog = await getCollection('blog')
+  const blog = await getCollection('changelog')
 
   const filteredBlogitems = blog.filter((item) => !item.data.draft)
 
@@ -27,7 +27,7 @@ export async function GET() {
 
     items: sortedBlogItems.map((item) => ({
       title: `${item.data.title}`,
-      link: withBasePath(`/blog/${item.id}`),
+      link: withBasePath(`/changelog/${item.id}`),
       pubDate: item.data.pubDate,
       description: item.data.description,
       author: SITE.author,

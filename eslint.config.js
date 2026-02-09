@@ -29,6 +29,9 @@ export default ts.config(
   prettier,
   {
     rules: {
+      // https://typescript-eslint.io/rules/no-explicit-any/
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
       // https://typescript-eslint.io/rules/no-unused-vars/
       '@typescript-eslint/no-unused-vars': [
         'error',

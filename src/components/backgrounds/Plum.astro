@@ -66,15 +66,14 @@
       let pendingSteps: Fn[] = []
       let lastTime = performance.now()
 
-      let lastColor = ''
-      let consecutiveColorCount = 0
+
 
       const step = (
         x: number,
         y: number,
         rad: number,
         counter: { value: number } = { value: 0 },
-        color: string = '' 
+        color = '' 
       ) => {
         if (!color) {
             let newColor = COLORS[Math.floor(random() * COLORS.length)]

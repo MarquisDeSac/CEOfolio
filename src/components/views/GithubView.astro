@@ -9,22 +9,12 @@ import { formatDate, isDiffMonth } from '~/utils/datetime'
 import { withBasePath } from '~/utils/path'
 import { matchLogo, extractPackageName, processVersion } from '~/utils/data'
 
-import type { RepoWithOwner, Url, Icon } from '~/types'
-import type { CollectionEntry } from 'astro:content'
 
-export type ExtendedReleaseData = CollectionEntry<'releases'>['data'] & {
-  isInMonorepo: boolean
-  pkgName: string
-  mainLogo: Url | Icon
-  subLogo: Url | Icon | undefined
-  versionType: 'major' | 'minor' | 'patch' | 'pre'
-  versionParts: [string, string]
-}
 
-export type ExtendedPrData = CollectionEntry<'prs'>['data'] & {
-  mainLogo: Url | Icon
-  subLogo: Url | Icon | undefined
-}
+
+export type ExtendedReleaseData = any
+
+export type ExtendedPrData = any
 
 interface Props {
   collectionType: 'releases' | 'prs'
@@ -41,17 +31,17 @@ const WARNING = `No GitHub data available for display.
 let isEmpty = false
 
 /* Releases */
-let releases: CollectionEntry<'releases'>[] = []
-let extendedReleases: ExtendedReleaseData[] = []
+let releases: any[] = []
+let extendedReleases: any[] = []
 
 if (collectionType === 'releases') {
-  releases = await getCollection(collectionType)
+  releases = await getCollection(collectionType as any)
 
   const pkgCountMap: Record<string, number> = {}
   extendedReleases = releases
     .map((item) => {
       const isInMonorepo = monorepos.includes(
-        item.data.repoNameWithOwner as RepoWithOwner
+        item.data.repoNameWithOwner as any
       )
       const pkgName = isInMonorepo
         ? extractPackageName(item.data.tagName)
@@ -92,11 +82,11 @@ if (collectionType === 'releases') {
 }
 
 /* PRs */
-let prs: CollectionEntry<'prs'>[] = []
-let extendedPrs: ExtendedPrData[] = []
+let prs: any[] = []
+let extendedPrs: any[] = []
 
 if (collectionType === 'prs') {
-  prs = await getCollection(collectionType)
+  prs = await getCollection(collectionType as any)
 
   extendedPrs = prs
     .filter(

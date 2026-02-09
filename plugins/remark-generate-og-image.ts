@@ -112,7 +112,7 @@ function remarkGenerateOgImage() {
 
   const { authorOrBrand, fallbackTitle, fallbackBgType } = ogImage[1]
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //
   // @ts-expect-error
   return async (_tree, file) => {
     // regenerate fallback

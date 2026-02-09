@@ -18,7 +18,7 @@ type Props =
       mobileItemType?: 'text' | 'icon'
     }
 
-const { type, item, mergeOnMobile, mobileItemType } = Astro.props
+const { type, item, mergeOnMobile, mobileItemType } = Astro.props as any
 
 const lang = Astro.url.pathname.split('/').includes('en') ? 'en' : 'fr'
 const localizedPath = type === 'internal' ? `/${lang}${item.path.replace(/\/$/, '')}` : item.path

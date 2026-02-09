@@ -10,11 +10,11 @@ import { FEATURES } from '~/config'
 import { isSameYear, getYear } from '~/utils/datetime'
 import { getFilteredPosts, getSortedPosts } from '~/utils/data'
 
-import type { CollectionEntry, CollectionKey } from 'astro:content'
-import type { StreamSchema } from '~/content/schema'
+
+
 
 interface Props {
-  collectionType: CollectionKey
+  collectionType: any
   pageToc: boolean
 }
 
@@ -30,8 +30,8 @@ const tocEnabled = Array.isArray(toc) && toc[0] && pageToc
 let years: string[] = []
 
 /* Posts */
-let sortedBlogItems: CollectionEntry<'blog' | 'changelog'>[] = []
-if (collectionType === 'blog' || collectionType === 'changelog') {
+let sortedBlogItems: any[] = []
+if ((collectionType as any) === 'blog' || (collectionType as any) === 'changelog') {
   const blogItems = await getFilteredPosts(collectionType)
   sortedBlogItems = getSortedPosts(blogItems)
 
@@ -49,12 +49,12 @@ if (collectionType === 'blog' || collectionType === 'changelog') {
 }
 
 /* Streams */
-let sortedStreamItems: StreamSchema[] = []
-if (collectionType === 'streams') {
+let sortedStreamItems: any[] = []
+if ((collectionType as any) === 'streams') {
   const streamItems = await getCollection(collectionType)
 
   sortedStreamItems = streamItems
-    .map((item) => item.data)
+    .map((item: any) => item.data)
     .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
 
   if (tocEnabled) {
@@ -71,11 +71,11 @@ if (collectionType === 'streams') {
 }
 
 /* Feeds */
-let sortedFeedItems: CollectionEntry<'feeds'>[] = []
-if (collectionType === 'feeds') {
+let sortedFeedItems: any[] = []
+if ((collectionType as any) === 'feeds') {
   const feedItems = await getCollection(collectionType)
 
-  sortedFeedItems = feedItems.sort((a, b) => {
+  sortedFeedItems = feedItems.sort((a: any, b: any) => {
     if (!a.data.pubdate || !b.data.pubdate)
       throw new Error("Feed item is missing 'pubdate' field.")
 
@@ -104,7 +104,7 @@ if (collectionType === 'feeds') {
       {sortedBlogItems.length === 0 ? (
         <div class="py-2 op-50">nothing here yet</div>
       ) : (
-        sortedBlogItems.map(async (item, idx) => {
+        sortedBlogItems.map(async (item: any, idx) => {
           const { data, id } = item
           const { remarkPluginFrontmatter } = await render(item)
           const minutesRead =

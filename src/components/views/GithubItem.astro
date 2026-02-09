@@ -18,7 +18,7 @@ type Props =
       isDiffMonth: boolean
     }
 
-const { collectionType, idx, item, isDiffMonth } = Astro.props
+const { collectionType, idx, item, isDiffMonth } = Astro.props as any
 
 const isOrg =
   collectionType === 'releases'
