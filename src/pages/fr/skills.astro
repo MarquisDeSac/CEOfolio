@@ -66,7 +66,7 @@ parcours.fr.forEach(p => {
 })
 
 // 4. Sort Skills into Categories
-const categorizedSkills = {}
+const categorizedSkills: Record<string, unknown[]> = {}
 Object.keys(categories).forEach(k => categorizedSkills[k] = [])
 
 skillMap.forEach((value, key) => {

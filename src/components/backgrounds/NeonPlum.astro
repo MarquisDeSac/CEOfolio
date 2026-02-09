@@ -11,7 +11,7 @@
     const canvas = document.getElementById('neon-plum-canvas') as HTMLCanvasElement
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d')!
     if (!ctx) return
 
     let width = window.innerWidth
@@ -38,10 +38,9 @@
     const r90 = Math.PI / 2
     const r15 = Math.PI / 12
 
-    let steps: Function[] = []
-    let prevSteps: Function[] = []
+    let steps: (() => void)[] = []
+    let prevSteps: (() => void)[] = []
     
-    let iterations = 0
     let rafId: number
 
     function polar2cart(x = 0, y = 0, r = 0, theta = 0) {
@@ -93,7 +92,6 @@
 
     function frame() {
         if (stopped) return
-        iterations++
         prevSteps = steps
         steps = []
 
@@ -118,7 +116,6 @@
        ctx.clearRect(0, 0, width, height)
        steps = []
        prevSteps = []
-       iterations = 0
        stopped = false
 
        // Start points: Bottom, Left, Right
