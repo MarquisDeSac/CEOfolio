@@ -20,7 +20,7 @@ type Props =
 
 const { type, item, mergeOnMobile, mobileItemType } = Astro.props
 
-const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'fr'
+const lang = Astro.url.pathname.split('/').includes('en') ? 'en' : 'fr'
 const localizedPath = type === 'internal' ? `/${lang}${item.path.replace(/\/$/, '')}` : item.path
 
 // Simple Translation Map for Nav Items
