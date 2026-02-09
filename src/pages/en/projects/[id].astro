@@ -35,7 +35,7 @@ const rgbColor = colorMap[color as keyof typeof colorMap]
 const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 ---
 
-<BaseLayout title={title} description={desc} bgType="neon-plum">
+<BaseLayout title={title} description={desc} bgType="city-lights">
     <style define:vars={{ 'c-main': rgbColor }}>
       :root {
         --c-main: var(--c-main);
