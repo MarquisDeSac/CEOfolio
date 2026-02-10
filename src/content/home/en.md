@@ -67,23 +67,23 @@
 ### <span class="glitch text-sunset-purple" data-text="Navigation">Navigation</span>
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-  <a href="en/projects" class="h-full p-6 rounded-xl border-2 border-b-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
+  <a href="en/projects" class="h-full p-6 rounded-xl border-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
     <div class="i-ri-gamepad-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
     <div class="font-bold text-base">Projects</div>
   </a>
-  <a href="en/experiences" class="h-full p-6 rounded-xl border-2 border-b-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
+  <a href="en/experiences" class="h-full p-6 rounded-xl border-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
     <div class="i-ri-briefcase-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
     <div class="font-bold text-base">Experiences</div>
   </a>
-  <a href="en/parcours" class="h-full p-6 rounded-xl border-2 border-b-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
+  <a href="en/parcours" class="h-full p-6 rounded-xl border-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
     <div class="i-ri-road-map-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
     <div class="font-bold text-base">Education</div>
   </a>
-  <a href="en/skills" class="h-full p-6 rounded-xl border-2 border-b-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
+  <a href="en/skills" class="h-full p-6 rounded-xl border-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
     <div class="i-ri-code-box-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
     <div class="font-bold text-base">Skills</div>
   </a>
-  <a href="en/contact" class="h-full p-6 rounded-xl border-2 border-b-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
+  <a href="en/contact" class="h-full p-6 rounded-xl border-2 border-black/20 dark:border-white/20 bg-black/5 dark:bg-white/5 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors text-center group no-underline! flex flex-col items-center justify-center gap-2">
     <div class="i-ri-mail-send-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple"></div>
     <div class="font-bold text-base">Contact</div>
   </a>
