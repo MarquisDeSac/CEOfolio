@@ -149,6 +149,7 @@ export default defineConfig({
     'hover:bg-neon-pink/10',
     'hover:border-sunset-purple',
     'hover:bg-sunset-purple/10',
+    'group-hover:text-neon-blue!',
 
     /* BaseLayout */
     'focus:not-sr-only',
