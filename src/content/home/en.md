@@ -153,15 +153,15 @@
 
 ### <span class="glitch text-neon-blue" data-text="Follow me">Follow me</span>
 
-<p class="flex justify-center items-center gap-8 mt-8 mb-4">
-  <a class="flex items-center gap-3 hover:text-neon-blue transition-colors no-underline!" href="https://www.linkedin.com/in/nino-sacchi-806aa9340/" target="_blank">
-    <span class="i-simple-icons-linkedin text-3xl"></span>
-    <span class="font-bold text-lg">LinkedIn</span>
+<p class="flex justify-center items-center gap-8 mt-12 mb-8">
+  <a class="flex flex-col items-center gap-3 hover:text-neon-blue transition-colors no-underline! group" href="https://www.linkedin.com/in/nino-sacchi-806aa9340/" target="_blank">
+    <span class="i-simple-icons-linkedin text-6xl group-hover:scale-110 transition-transform"></span>
+    <span class="font-bold text-xl">LinkedIn</span>
   </a>
-  <span class="op-20 text-lg">|</span>
-  <a class="flex items-center gap-3 hover:text-neon-pink transition-colors no-underline!" href="https://github.com/MarquisDeSac" target="_blank">
-    <span class="i-simple-icons-github text-3xl"></span>
-    <span class="font-bold text-lg">GitHub</span>
+  <span class="op-20 text-4xl">|</span>
+  <a class="flex flex-col items-center gap-3 hover:text-neon-pink transition-colors no-underline! group" href="https://github.com/MarquisDeSac" target="_blank">
+    <span class="i-simple-icons-github text-6xl group-hover:scale-110 transition-transform"></span>
+    <span class="font-bold text-xl">GitHub</span>
   </a>
 </p>
 

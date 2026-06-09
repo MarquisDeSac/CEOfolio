@@ -110,9 +110,9 @@
   <div class="p-4 rounded border border-white/10 bg-white/5">
     <h4 class="font-bold text-lg mb-2">Spécialités</h4>
     <ul class="list-disc list-inside op-70 text-sm leading-relaxed">
-      <li>Chef de projet / Main Developper</li>
-      <li>Game Design & Narration</li>
-      <li>UI/UX Design</li>
+      <li>Chef de projet</li>
+      <li>Lead Developper</li>
+      <li>Game Designer</li>
     </ul>
   </div>
 </div>
