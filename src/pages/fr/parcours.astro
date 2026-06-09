@@ -18,7 +18,7 @@ const subtitle = "Mon cheminement académique et personnel."
     subtitle={subtitle}
     isCentered={true}
   >
-    <div slot="article" class="max-w-3xl mx-auto py-10 relative">
+    <div slot="article" class="max-w-5xl mx-auto py-10 relative">
       <!-- Vertical Line -->
       <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-gray-300 dark:via-gray-700 to-transparent transform -translate-x-1/2"></div>
 
@@ -38,7 +38,7 @@ const subtitle = "Mon cheminement académique et personnel."
 
             <!-- Content Card -->
             <div class="w-full pl-12 md:pl-0 md:w-5/12">
-              <div class={`p-6 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-${item.color} hover:bg-${item.color}/5 transition-all duration-300 relative overflow-hidden group-hover:shadow-[0_0_20px_rgba(var(--c-${item.color}),0.15)]`}>
+              <button onclick={`document.getElementById('modal-parcours-${index}')?.showModal()`} class={`w-full text-left p-6 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-${item.color} hover:bg-${item.color}/5 transition-all duration-300 relative overflow-hidden group-hover:shadow-[0_0_20px_rgba(var(--c-${item.color}),0.15)] cursor-pointer`}>
                 
                 <!-- Date Badge -->
                 <div class={`inline-block px-3 py-1 mb-3 text-xs font-bold rounded-full border border-${item.color}/30 bg-${item.color}/10 text-${item.color}`}>
@@ -69,13 +69,46 @@ const subtitle = "Mon cheminement académique et personnel."
 
                 <!-- Glow Effect -->
                 <div class={`absolute -right-4 -bottom-4 w-24 h-24 bg-${item.color} opacity-10 blur-2xl rounded-full group-hover:opacity-20 transition-opacity`}></div>
-              </div>
+              </button>
             </div>
 
           </div>
         ))}
       </div>
     
+      <!-- Modals for Parcours -->
+      {parcours.fr.map((item, index) => (
+        item.links && item.links.length > 0 && (
+          <dialog id={`modal-parcours-${index}`} class="backdrop:bg-black/80 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto max-w-lg w-full rounded-2xl shadow-2xl open:animate-fade-in z-50">
+            <div class="bg-[#FCFCFC] dark:bg-[#0c0c0c] border border-black/10 dark:border-white/10 p-6 rounded-2xl relative overflow-hidden">
+                
+                <form method="dialog">
+                  <button class="absolute top-4 right-4 u-text-main opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-50">
+                    <div class="i-ri-close-line text-2xl"></div>
+                  </button>
+                </form>
+
+                <h3 class="text-xl font-bold u-text-main mb-6 pr-8">
+                  Liens associés à <br/><span class={`text-${item.color}`}>{item.title}</span>
+                </h3>
+
+                <div class="flex flex-col gap-3">
+                  {item.links.map(link => (
+                    <a href={link.url} target="_blank" class={`flex items-center gap-4 p-4 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-${item.color}/10 transition-colors group no-underline border border-transparent hover:border-${item.color}/30`}>
+                      <div class={`p-2 rounded-lg bg-${item.color}/20 text-${item.color}`}>
+                        <div class={`${link.icon} text-xl`}></div>
+                      </div>
+                      <span class="font-bold text-lg u-text-main group-hover:text-neon-blue transition-colors">{link.name}</span>
+                      <div class={`ml-auto i-ri-arrow-right-up-line opacity-30 group-hover:opacity-100 text-${item.color} transition-all group-hover:translate-x-1 group-hover:-translate-y-1`}></div>
+                    </a>
+                  ))}
+                </div>
+
+            </div>
+          </dialog>
+        )
+      ))}
+
     </div>
   </StandardLayout>
 </BaseLayout>
@@ -86,5 +119,12 @@ const subtitle = "Mon cheminement académique et personnel."
     .absolute.left-4 {
       left: 2rem; /* Align with card padding */
     }
+  }
+  dialog[open] {
+    animation: zoom-in 0.2s ease-out;
+  }
+  @keyframes zoom-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>

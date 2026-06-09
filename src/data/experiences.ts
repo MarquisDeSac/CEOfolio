@@ -9,6 +9,7 @@ export interface ExperienceItem {
     skills: string[];
     color: string;
     icon: string;
+    links?: { name: string; url: string; icon: string }[];
 }
 
 export const experiences = {
@@ -29,7 +30,10 @@ export const experiences = {
             ],
             skills: ['Unity 3D', 'Unity WebGL', 'Unity VR', 'C#', 'Intelligence Artificielle (IA)', 'Réalité Virtuelle (RV)'],
             color: 'neon-blue',
-            icon: 'i-ri-code-s-slash-line'
+            icon: 'i-ri-code-s-slash-line',
+            links: [
+                { name: "VHEX Lab", url: "http://vhexlab.com", icon: "i-ri-building-line" }
+            ]
         },
         {
             company: 'VHEX Lab / Seoul, COEX',
@@ -46,7 +50,10 @@ export const experiences = {
             ],
             skills: ['Public Speaking', 'Communication Technique', 'Communication Interculturelle', 'VR Demonstration', 'Audience Engagement', 'Booth Management'],
             color: 'neon-pink',
-            icon: 'i-ri-presentation-line'
+            icon: 'i-ri-presentation-line',
+            links: [
+                { name: "World IT Show 2025", url: "https://www.coexcenter.com/events/world-it-show-2025/", icon: "i-ri-global-line" }
+            ]
         }
     ],
     en: [
@@ -66,7 +73,10 @@ export const experiences = {
             ],
             skills: ['Unity 3D', 'Unity WebGL', 'Unity VR', 'C#', 'Artificial Intelligence (AI)', 'Virtual Reality (VR)'],
             color: 'neon-blue',
-            icon: 'i-ri-code-s-slash-line'
+            icon: 'i-ri-code-s-slash-line',
+            links: [
+                { name: "VHEX Lab", url: "http://vhexlab.com", icon: "i-ri-building-line" }
+            ]
         },
         {
             company: 'VHEX Lab / Seoul, COEX',
@@ -83,7 +93,10 @@ export const experiences = {
             ],
             skills: ['Public Speaking', 'Technical Communication', 'Intercultural Communication', 'VR Demonstration', 'Audience Engagement', 'Booth Management'],
             color: 'neon-pink',
-            icon: 'i-ri-presentation-line'
+            icon: 'i-ri-presentation-line',
+            links: [
+                { name: "World IT Show 2025", url: "https://www.coexcenter.com/events/world-it-show-2025/", icon: "i-ri-global-line" }
+            ]
         }
     ]
 }

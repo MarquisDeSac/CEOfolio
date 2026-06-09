@@ -17,7 +17,7 @@ const subtitle = "Parcours Professionnel & Missions"
     title={title}
     subtitle={subtitle}
     isCentered={true}
-    articleClass="max-w-4xl!"
+    articleClass="max-w-5xl!"
   >
     <div slot="article" class="max-w-none relative py-10">
       
@@ -54,7 +54,7 @@ const subtitle = "Parcours Professionnel & Missions"
                   <span class="flex items-center gap-1"><span class="i-ri-time-line"></span> {item.duration}</span>
                 </div>
 
-                <div class="p-6 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-${item.color}/30 transition-all duration-300">
+                <button onclick={`document.getElementById('modal-experience-${index}')?.showModal()`} class={`w-full text-left p-6 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-${item.color}/50 hover:bg-${item.color}/5 hover:-translate-y-1 hover:shadow-[0_10px_30px_-15px_rgba(var(--c-${item.color}),0.3)] transition-all duration-300 cursor-pointer group/card relative overflow-hidden`}>
                   <ul class="space-y-3 mb-6">
                     {item.desc.map(point => (
                       <li class="flex items-start gap-3">
@@ -64,20 +64,70 @@ const subtitle = "Parcours Professionnel & Missions"
                     ))}
                   </ul>
 
-                  <div class="flex flex-wrap gap-2 pt-4 border-t border-black/5 dark:border-white/5">
-                    {item.skills.map(skill => (
-                      <span class="px-2 py-1 text-xs rounded border border-black/10 dark:border-white/10 bg-white dark:bg-black/20 u-text-muted hover:border-black/30 dark:hover:border-white/30 transition-colors">
-                        {skill}
-                      </span>
-                    ))}
+                  <div class="flex items-end justify-between pt-4 border-t border-black/5 dark:border-white/5 mt-2">
+                    <div class="flex flex-wrap gap-2">
+                      {item.skills.map(skill => (
+                        <span class="px-2 py-1 text-xs rounded border border-black/10 dark:border-white/10 bg-white dark:bg-black/20 u-text-muted hover:border-black/30 dark:hover:border-white/30 transition-colors">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                    {item.links && item.links.length > 0 && (
+                      <div class={`text-xs font-bold text-${item.color} opacity-0 group-hover/card:opacity-100 transform translate-x-[-10px] group-hover/card:translate-x-0 transition-all duration-300 flex items-center gap-1 shrink-0 ml-4`}>
+                        Voir les liens <span class="i-ri-arrow-right-line"></span>
+                      </div>
+                    )}
                   </div>
-                </div>
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
 
+      <!-- Modals for Experiences -->
+      {experiences.fr.map((item, index) => (
+        item.links && item.links.length > 0 && (
+          <dialog id={`modal-experience-${index}`} class="backdrop:bg-black/80 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto max-w-lg w-full rounded-2xl shadow-2xl open:animate-fade-in z-50">
+            <div class="bg-[#FCFCFC] dark:bg-[#0c0c0c] border border-black/10 dark:border-white/10 p-6 rounded-2xl relative overflow-hidden">
+                
+                <form method="dialog">
+                  <button class="absolute top-4 right-4 u-text-main opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-50">
+                    <div class="i-ri-close-line text-2xl"></div>
+                  </button>
+                </form>
+
+                <h3 class="text-xl font-bold u-text-main mb-6 pr-8">
+                  Liens associés à <br/><span class={`text-${item.color}`}>{item.company}</span>
+                </h3>
+
+                <div class="flex flex-col gap-3">
+                  {item.links.map(link => (
+                    <a href={link.url} target="_blank" class={`flex items-center gap-4 p-4 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-${item.color}/10 transition-colors group no-underline border border-transparent hover:border-${item.color}/30`}>
+                      <div class={`p-2 rounded-lg bg-${item.color}/20 text-${item.color}`}>
+                        <div class={`${link.icon} text-xl`}></div>
+                      </div>
+                      <span class="font-bold text-lg u-text-main group-hover:text-neon-blue transition-colors">{link.name}</span>
+                      <div class={`ml-auto i-ri-arrow-right-up-line opacity-30 group-hover:opacity-100 text-${item.color} transition-all group-hover:translate-x-1 group-hover:-translate-y-1`}></div>
+                    </a>
+                  ))}
+                </div>
+
+            </div>
+          </dialog>
+        )
+      ))}
+
     </div>
   </StandardLayout>
 </BaseLayout>
+
+<style>
+  dialog[open] {
+    animation: zoom-in 0.2s ease-out;
+  }
+  @keyframes zoom-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>

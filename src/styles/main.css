@@ -43,18 +43,6 @@ html:has(#bg-rose) {
 body {
   overflow-x: hidden;
   overflow-y: scroll;
-  cursor: none;
-  /* Keep none to hide default */
-}
-
-/* Restore cursor for dialogs because they sit in Top Layer above custom cursor */
-dialog {
-  cursor: auto !important;
-}
-
-/* Hide custom cursor when dialog is open to prevent ghosting behind modal */
-body:has(dialog[open]) #custom-cursor {
-  opacity: 0 !important;
 }
 
 body::before {
@@ -357,7 +345,6 @@ mark.pagefind-highlight {
 /* Glitch Effect */
 .glitch {
   position: relative;
-  color: var(--c-text);
   letter-spacing: -0.05em;
 }
 

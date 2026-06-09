@@ -1,5 +1,109 @@
 [
   {
+    "id": "darkchild-story",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Action Roguelite 2D sur Unity combinant stratégie de placement de cartes et action-RPG.",
+    "desc_en": "2D Unity Action Roguelite combining card placement strategy and action-RPG.",
+    "icon": "i-ri-sword-line",
+    "category": "Game Dev",
+    "date": "2026",
+    "client": "INUC - Master 1 AMINJ",
+    "skills": [
+      "Chef de projet",
+      "Développeur",
+      "Game design",
+      "UI/UX",
+      "Unity 3D",
+      "C#"
+    ],
+    "skills_en": [
+      "Project Manager",
+      "Developer",
+      "Game Design",
+      "UI/UX",
+      "Unity 3D",
+      "C#"
+    ],
+    "details": [
+      "DarkChild Story est un rogue-lite combinant deux styles de jeu : stratégie via placement de cartes et combat en action-RPG.",
+      "Le but est de forcer la \"mort\" du joueur avec des murs infranchissables pour débloquer de nouveaux éléments à chaque essai.",
+      "Système de sauvegarde multi-profils via JSON.",
+      "Système de succès offrant des objectifs secondaires et débloquant de nouvelles possibilités de gameplay."
+    ],
+    "details_en": [
+      "DarkChild Story is a rogue-lite combining two gameplay styles: card placement strategy and action-RPG combat.",
+      "The goal is to force the player's 'death' using impassable walls to unlock new elements with each try.",
+      "Multi-profile save system via JSON.",
+      "Achievement system providing secondary objectives and unlocking new gameplay possibilities."
+    ],
+    "images": [
+      "/projects/darkchild-story/darkchild-story-1.webp",
+      "/projects/darkchild-story/darkchild-story-2.webp",
+      "/projects/darkchild-story/darkchild-story-3.webp",
+      "/projects/darkchild-story/darkchild-story-4.webp",
+      "/projects/darkchild-story/darkchild-story-5.webp",
+      "/projects/darkchild-story/darkchild-story-6.webp",
+      "/projects/darkchild-story/darkchild-story-7.webp",
+      "/projects/darkchild-story/darkchild-story-8.webp",
+      "/projects/darkchild-story/darkchild-story-9.webp",
+      "/projects/darkchild-story/darkchild-story-10.webp"
+    ],
+    "video": "/projects/darkchild-story/web_darkchild-story-demo.mp4",
+    "featured": true
+  },
+  {
+    "id": "chroniques-oubliees",
+    "link": "https://github.com/ninosacchi",
+    "desc": "Jeu WebGL centré sur le JDR Chroniques Oubliées avec un focus sur la romance et l'humour.",
+    "desc_en": "WebGL game based on the Chroniques Oubliées TTRPG focusing on romance and humor.",
+    "icon": "i-ri-book-3-line",
+    "category": "Narrative Game",
+    "date": "2026",
+    "client": "INUC - Master 1 AMINJ",
+    "skills": [
+      "Chef de projet",
+      "Narrative Design",
+      "Game design",
+      "Développeur",
+      "Unity WebGL"
+    ],
+    "skills_en": [
+      "Project Manager",
+      "Narrative Design",
+      "Game Design",
+      "Developer",
+      "Unity WebGL"
+    ],
+    "details": [
+      "Création d'un jeu WebGL basé sur le jeu de rôle papier 'Chroniques Oubliées'.",
+      "Système de création de personnage fidèle aux règles officielles du JDR.",
+      "Narrative design axé sur la romance et l'humour second degré.",
+      "Les joueurs peuvent suivre une histoire interactive et tenter de séduire des personnages originaux rencontrés en jeu."
+    ],
+    "details_en": [
+      "Creation of a WebGL game based on the 'Chroniques Oubliées' tabletop RPG.",
+      "Character creation system faithful to the official TTRPG rules.",
+      "Narrative design focused on romance and tongue-in-cheek humor.",
+      "Players can follow an interactive story and attempt to romance original characters encountered in-game."
+    ],
+    "images": [
+      "/projects/chroniques-oubliees/chroniques-oubliees-1.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-2.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-3.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-4.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-5.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-6.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-7.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-8.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-9.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-10.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-11.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-12.webp",
+      "/projects/chroniques-oubliees/chroniques-oubliees-13.webp"
+    ],
+    "featured": false
+  },
+  {
     "id": "classlab",
     "link": "https://github.com/ninosacchi",
     "desc": "Serious Game immersif 3D pour la formation des enseignants de l'Université Uniminuto (Colombie).",
@@ -7,7 +111,7 @@
     "icon": "i-ri-book-read-line",
     "category": "Serious Game",
     "date": "oct. 2025 - janv. 2026",
-    "client": "Institut National Universitaire Champollion",
+    "client": "INUC - Master 1 AMINJ",
     "skills": [
       "Chef de projet",
       "Game design",
@@ -42,7 +146,18 @@
       "Multilingual interface (French, English, Spanish).",
       "Performance analysis system with radar visualization."
     ],
-    "images": []
+    "images": [
+      "/projects/classlab/classlab-1.webp",
+      "/projects/classlab/classlab-2.webp",
+      "/projects/classlab/classlab-3.webp",
+      "/projects/classlab/classlab-4.webp",
+      "/projects/classlab/classlab-5.webp",
+      "/projects/classlab/classlab-6.webp",
+      "/projects/classlab/classlab-7.webp",
+      "/projects/classlab/classlab-8.webp"
+    ],
+    "video": "/projects/classlab/web_classlab-demo.mp4",
+    "featured": true
   },
   {
     "id": "temperamancien",
@@ -52,7 +167,7 @@
     "icon": "i-ri-fire-line",
     "category": "Serious Game",
     "date": "janv. 2026 - janv. 2026",
-    "client": "Institut National Universitaire Champollion",
+    "client": "INUC - Master 1 AMINJ",
     "skills": [
       "Chef de projet",
       "Unity",
@@ -85,7 +200,22 @@
       "Dubbed cinematics and reactive sound design.",
       "Real-time pedagogical verification system."
     ],
-    "images": []
+    "images": [
+      "/projects/thermoclash/thermoclash-1.webp",
+      "/projects/thermoclash/thermoclash-2.webp",
+      "/projects/thermoclash/thermoclash-3.webp",
+      "/projects/thermoclash/thermoclash-4.webp",
+      "/projects/thermoclash/thermoclash-5.webp",
+      "/projects/thermoclash/thermoclash-6.webp",
+      "/projects/thermoclash/thermoclash-7.webp",
+      "/projects/thermoclash/thermoclash-8.webp",
+      "/projects/thermoclash/thermoclash-9.webp",
+      "/projects/thermoclash/thermoclash-10.webp",
+      "/projects/thermoclash/thermoclash-11.webp",
+      "/projects/thermoclash/thermoclash-12.webp"
+    ],
+    "video": "/projects/thermoclash/web_thermoclash-demo.mp4",
+    "featured": true
   },
   {
     "id": "dramatic-life-story",
@@ -130,7 +260,8 @@
       "Scrum team work with sprints and stage deliverables.",
       "Modular code and data integrity ensured."
     ],
-    "images": []
+    "images": [],
+    "featured": false
   },
   {
     "id": "sonic-alphabet",
@@ -171,7 +302,8 @@
       "VR comfort tools to reduce Motion Sickness.",
       "Diegetic interface and spatialized audio."
     ],
-    "images": []
+    "images": [],
+    "featured": false
   },
   {
     "id": "communication-type-test",
@@ -199,7 +331,8 @@
       "Génération de rapports détaillés par le modèle IA.",
       "Interaction WebGL fluide avec capture audio navigateur."
     ],
-    "images": []
+    "images": [],
+    "featured": false
   },
   {
     "id": "face-the-fear",
@@ -242,7 +375,8 @@
       "Item system (consumables, stat upgrades).",
       "Immersive atmosphere (BGM, SFX)."
     ],
-    "images": []
+    "images": [],
+    "featured": false
   },
   {
     "id": "element-powder",
@@ -283,6 +417,13 @@
       "API integration for dynamic backgrounds.",
       "Optimization for high particle density."
     ],
-    "images": []
+    "images": [
+      "/projects/element-powder/element-powder-1.webp",
+      "/projects/element-powder/element-powder-2.webp",
+      "/projects/element-powder/element-powder-3.webp",
+      "/projects/element-powder/element-powder-4.webp"
+    ],
+    "video": "/projects/element-powder/web_element-powder-demo.mp4",
+    "featured": false
   }
 ]

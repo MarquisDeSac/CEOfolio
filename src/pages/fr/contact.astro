@@ -19,6 +19,27 @@ const subtitle = "Démarrons une collaboration"
     articleClass="max-w-2xl!"
   >
     <div slot="article" class="py-10">
+
+      <!-- Contact Info Panel -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 p-8 mb-8 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+        <div class="flex items-center gap-4">
+          <div class="p-3 rounded-full bg-neon-blue/20 text-neon-blue">
+            <div class="i-ri-mail-send-line text-3xl"></div>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-bold uppercase tracking-widest opacity-70 mb-1">Email Pro</span>
+            <a href="mailto:nino.sacchi.pro@gmail.com" class="text-xl font-bold u-text-main hover:text-neon-blue transition-colors no-underline!">nino.sacchi.pro@gmail.com</a>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://github.com/MarquisDeSac" target="_blank" class="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-sunset-purple hover:text-sunset-purple transition-all group">
+            <div class="i-simple-icons-github text-3xl group-hover:scale-110 transition-transform"></div>
+          </a>
+          <a href="https://www.linkedin.com/in/nino-sacchi-806aa9340/" target="_blank" class="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-blue hover:text-neon-blue transition-all group">
+            <div class="i-simple-icons-linkedin text-3xl group-hover:scale-110 transition-transform"></div>
+          </a>
+        </div>
+      </div>
       
       <div class="p-8 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
         <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">

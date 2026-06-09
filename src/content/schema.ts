@@ -167,6 +167,8 @@ export const projectSchema = z.object({
   details: z.array(z.string()).default([]).describe('Bullet points describing the project.'),
   details_en: z.array(z.string()).optional().describe('Bullet points describing the project (English).'),
   images: z.array(z.string()).default([]).describe('List of image paths for the project gallery.'),
+  video: z.string().optional().describe('Optional demo video path.'),
+  featured: z.boolean().default(false).describe('Whether the project is featured in the showcase.'),
 })
 
 export type ProjectSchema = z.infer<typeof projectSchema>

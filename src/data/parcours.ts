@@ -7,6 +7,7 @@ export interface ParcoursItem {
     color: string;
     icon: string;
     skills?: string[];
+    links?: { name: string; url: string; icon: string }[];
 }
 
 export const parcours = {
@@ -19,7 +20,11 @@ export const parcours = {
             desc: 'Spécialisation à venir en conception de jeux vidéo et médias interactifs avancés.',
             color: 'neon-pink',
             icon: 'i-ri-gamepad-line',
-            skills: []
+            skills: [],
+            links: [
+                { name: "INUC", url: "https://www.univ-jfc.fr/", icon: "i-ri-building-line" },
+                { name: "Master AMINJ", url: "https://www.univ-jfc.fr/masters/audiovisuel-medias-interactifs-numeriques-jeu", icon: "i-ri-graduation-cap-line" }
+            ]
         },
         {
             year: 'Sept. 2024 - Juin 2025',
@@ -29,7 +34,11 @@ export const parcours = {
             desc: 'Semestre d\'échange international axé sur les technologies immersives et le développement graphique.',
             color: 'neon-blue',
             icon: 'i-ri-plane-line',
-            skills: ['Unity 3D', 'AR/VR', 'Godot', 'WebGL', 'Processing', 'Korean', 'English']
+            skills: ['Unity 3D', 'AR/VR', 'Godot', 'WebGL', 'Processing', 'Korean', 'English'],
+            links: [
+                { name: "Ajou University", url: "https://www.ajou.ac.kr/en/index.do#2759", icon: "i-ri-building-line" },
+                { name: "College of Computing", url: "https://www.ajou.ac.kr/en/admission/college-of-computing-and-informatics.do", icon: "i-ri-graduation-cap-line" }
+            ]
         },
         {
             year: '2020 - 2025',
@@ -39,7 +48,11 @@ export const parcours = {
             desc: 'Formation fondamentale en développement logiciel, algorithmique et gestion de bases de données.',
             color: 'sunset-purple',
             icon: 'i-ri-book-open-line',
-            skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases']
+            skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases'],
+            links: [
+                { name: "UFR ST", url: "https://www.umlp.fr/composantes/ufr-st", icon: "i-ri-building-line" },
+                { name: "Licence Informatique", url: "https://formations.univ-fcomte.fr/fr/index/formations/feuilleter-le-catalogue/licence-lmd-XA/licence-informatique-M4MKYC5V.html", icon: "i-ri-graduation-cap-line" }
+            ]
         }
     ],
     en: [
@@ -51,7 +64,11 @@ export const parcours = {
             desc: 'Upcoming specialization in video game design and advanced interactive media.',
             color: 'neon-pink',
             icon: 'i-ri-gamepad-line',
-            skills: []
+            skills: [],
+            links: [
+                { name: "INUC", url: "https://www.univ-jfc.fr/", icon: "i-ri-building-line" },
+                { name: "Master AMINJ", url: "https://www.univ-jfc.fr/masters/audiovisuel-medias-interactifs-numeriques-jeu", icon: "i-ri-graduation-cap-line" }
+            ]
         },
         {
             year: 'Sept. 2024 - June 2025',
@@ -61,7 +78,11 @@ export const parcours = {
             desc: 'International exchange semester focused on immersive technologies and graphic development.',
             color: 'neon-blue',
             icon: 'i-ri-plane-line',
-            skills: ['Unity 3D', 'AR/VR', 'Godot', 'WebGL', 'Processing', 'Korean', 'English']
+            skills: ['Unity 3D', 'AR/VR', 'Godot', 'WebGL', 'Processing', 'Korean', 'English'],
+            links: [
+                { name: "Ajou University", url: "https://www.ajou.ac.kr/en/index.do#2759", icon: "i-ri-building-line" },
+                { name: "College of Computing", url: "https://www.ajou.ac.kr/en/admission/college-of-computing-and-informatics.do", icon: "i-ri-graduation-cap-line" }
+            ]
         },
         {
             year: '2020 - 2025',
@@ -71,7 +92,11 @@ export const parcours = {
             desc: 'Fundamental training in software development, algorithmics, and database management.',
             color: 'sunset-purple',
             icon: 'i-ri-book-open-line',
-            skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases']
+            skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases'],
+            links: [
+                { name: "UFR ST", url: "https://www.umlp.fr/composantes/ufr-st", icon: "i-ri-building-line" },
+                { name: "Bachelor in CS", url: "https://formations.univ-fcomte.fr/fr/index/formations/feuilleter-le-catalogue/licence-lmd-XA/licence-informatique-M4MKYC5V.html", icon: "i-ri-graduation-cap-line" }
+            ]
         }
     ]
 }

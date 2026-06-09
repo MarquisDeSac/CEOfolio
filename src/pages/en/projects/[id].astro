@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import BaseLayout from '~/layouts/BaseLayout.astro'
-import { resolvePath } from '~/utils/path'
+import { resolvePath, withBasePath } from '~/utils/path'
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects')
@@ -124,11 +124,108 @@ const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word
                 </section>
             </div>
         </div>
+
+        <!-- Media Gallery -->
+        {(data.video || (data.images && data.images.length > 0)) && (
+            <div class="mt-16 border-t border-black/10 dark:border-white/10 pt-10">
+                <h2 class="text-2xl font-display font-bold mb-8 flex items-center gap-3 u-text-main">
+                    <span class={`i-ri-image-line text-${color}`}></span> Gallery
+                </h2>
+                
+                <div class="flex flex-col gap-8">
+                    {/* Video Demo */}
+                    {data.video && (
+                        <div class="w-full">
+                            <p class="text-xs text-center opacity-50 mb-2">If the video does not play, please refresh the page (F5)!</p>
+                            <div class="w-full rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 shadow-lg">
+                                <video 
+                                    controls 
+                                    autoplay 
+                                    loop 
+                                    muted 
+                                    playsinline 
+                                    poster={data.images && data.images.length > 0 ? withBasePath(data.images[0]) : undefined}
+                                    class="w-full h-auto max-h-[70vh] object-contain"
+                                >
+                                    <source src={withBasePath(data.video)} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Image Grid */}
+                    {data.images && data.images.length > 0 && (
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {data.images.map((img: string, i: number) => (
+                                <button 
+                                    data-src={withBasePath(img)} 
+                                    class={`lightbox-trigger block group rounded-xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 relative hover:border-${color} transition-all duration-300 hover:shadow-[0_0_20px_rgba(var(--c-${color}),0.2)] aspect-video w-full cursor-pointer`}
+                                >
+                                    <img 
+                                        src={withBasePath(img)} 
+                                        alt={`Screenshot ${i + 1} of ${title}`}
+                                        loading="lazy"
+                                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <span class="i-ri-zoom-in-line text-white text-3xl opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"></span>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+        )}
     </div>
+
+    <!-- Lightbox Modal -->
+    <dialog id="image-lightbox" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-4 m-auto max-w-[95vw] max-h-[95vh] w-full h-full rounded-none shadow-none open:animate-fade-in z-[100] outline-none">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <form method="dialog" class="absolute top-0 right-0 z-50">
+                <button class="text-white opacity-70 hover:opacity-100 transition-opacity p-2 cursor-pointer bg-black/50 hover:bg-black/80 rounded-full">
+                    <div class="i-ri-close-line text-3xl"></div>
+                </button>
+            </form>
+            <img id="lightbox-img" src="" alt="Fullscreen preview" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl" />
+        </div>
+    </dialog>
+
+    <script>
+        document.addEventListener('astro:page-load', () => {
+            const lightbox = document.getElementById('image-lightbox') as HTMLDialogElement;
+            const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+            
+            document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const src = trigger.getAttribute('data-src');
+                    if (src && lightbox && lightboxImg) {
+                        lightboxImg.src = src;
+                        lightbox.showModal();
+                    }
+                });
+            });
+
+            // Close on click outside
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.close();
+                    }
+                });
+            }
+
+            // Force video reload for ViewTransitions
+            document.querySelectorAll('video').forEach(video => {
+                video.load();
+                video.play().catch((e) => { console.warn(e); });
+            });
+
+            // Force opacity reset on prose P tags if they misbehave
+            document.querySelectorAll('.prose p').forEach(el => {
+                (el as HTMLElement).style.opacity = '1';
+            });
+        });
+    </script>
 </BaseLayout>
-<script>
-    // Force opacity reset on prose P tags if they misbehave
-    document.querySelectorAll('.prose p').forEach(el => {
-        (el as HTMLElement).style.opacity = '1';
-    });
-</script>

@@ -1,4 +1,4 @@
-![Profile Photo](/profile.jpg)
+<img src="/CEOfolio/profile.webp" alt="Profile Photo" class="w-48 h-48 md:w-64 md:h-64 object-cover object-[center_15%] rounded-full mx-auto shadow-[0_0_30px_rgba(255,255,255,0.1)] border-4 border-white/10 mb-8" />
 
 <div class="flex flex-col gap-6 mt-8">
 
@@ -15,17 +15,72 @@
 
   <!-- Character Data -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="p-4 rounded border border-white/10 bg-white/5 hover:border-neon-blue hover:bg-neon-blue/10 transition-colors">
+    <button onclick="document.getElementById('modal-international').showModal()" class="w-full text-left p-4 rounded border border-white/10 bg-white/5 hover:border-neon-pink/50 hover:bg-neon-pink/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer group/card relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-pink to-transparent"></div>
       <div class="text-xs font-bold op-50 uppercase tracking-widest mb-1">Parcours International</div>
       <div class="font-bold text-lg">France <span class="i-ri-arrow-right-line align-middle text-sm"></span> Corée du Sud</div>
       <div class="text-sm op-60 mt-1">Une année d'échange à Ajou University & Stage chez VHEX Lab.</div>
-    </div>
-    <div class="p-4 rounded border border-white/10 bg-white/5 hover:border-neon-blue hover:bg-neon-blue/10 transition-colors">
+      <div class="text-xs font-bold text-neon-pink opacity-0 group-hover/card:opacity-100 transform translate-y-[10px] group-hover/card:translate-y-0 transition-all duration-300 flex items-center gap-1 mt-3">
+        Voir les liens <span class="i-ri-arrow-right-line"></span>
+      </div>
+    </button>
+    <button onclick="document.getElementById('modal-formation').showModal()" class="w-full text-left p-4 rounded border border-white/10 bg-white/5 hover:border-sunset-purple/50 hover:bg-sunset-purple/5 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer group/card relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sunset-purple to-transparent"></div>
       <div class="text-xs font-bold op-50 uppercase tracking-widest mb-1">Formation Actuelle</div>
       <div class="font-bold text-lg">Master AMINJ</div>
       <div class="text-sm op-60 mt-1">INU Champollion. Dev Unity, VR, Gamification, Chef de projet</div>
-    </div>
+      <div class="text-xs font-bold text-sunset-purple opacity-0 group-hover/card:opacity-100 transform translate-y-[10px] group-hover/card:translate-y-0 transition-all duration-300 flex items-center gap-1 mt-3">
+        Voir les liens <span class="i-ri-arrow-right-line"></span>
+      </div>
+    </button>
   </div>
+
+  <!-- Modals for Character Data -->
+  <dialog id="modal-international" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-6 rounded-xl text-black dark:text-white max-w-lg w-[90vw] m-auto shadow-2xl open:animate-fade-in outline-none">
+    <h3 class="text-2xl font-bold mb-6 text-neon-pink font-display flex items-center gap-2"><span class="i-ri-earth-line"></span> Parcours International</h3>
+    <div class="flex flex-col gap-3">
+      <a href="https://st.univ-fcomte.fr/" target="_blank" class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-pink hover:bg-neon-pink/10 transition-colors flex justify-between items-center group no-underline text-black dark:text-white">
+        <div>
+          <div class="font-bold">UFR ST</div>
+          <div class="text-sm opacity-60">Licence Informatique</div>
+        </div>
+        <div class="i-ri-external-link-line opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink text-xl"></div>
+      </a>
+      <a href="https://www.ajou.ac.kr/en/index.do" target="_blank" class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-pink hover:bg-neon-pink/10 transition-colors flex justify-between items-center group no-underline text-black dark:text-white">
+        <div>
+          <div class="font-bold">Ajou University</div>
+          <div class="text-sm opacity-60">Exchange Student</div>
+        </div>
+        <div class="i-ri-external-link-line opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink text-xl"></div>
+      </a>
+      <a href="https://www.vhex.co.kr/" target="_blank" class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-neon-pink hover:bg-neon-pink/10 transition-colors flex justify-between items-center group no-underline text-black dark:text-white">
+        <div>
+          <div class="font-bold">VHEX Lab</div>
+          <div class="text-sm opacity-60">Stage (Internship)</div>
+        </div>
+        <div class="i-ri-external-link-line opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink text-xl"></div>
+      </a>
+    </div>
+    <form method="dialog" class="mt-6 flex justify-end">
+      <button class="px-5 py-2.5 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors font-bold cursor-pointer">Fermer</button>
+    </form>
+  </dialog>
+
+  <dialog id="modal-formation" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-6 rounded-xl text-black dark:text-white max-w-lg w-[90vw] m-auto shadow-2xl open:animate-fade-in outline-none">
+    <h3 class="text-2xl font-bold mb-6 text-sunset-purple font-display flex items-center gap-2"><span class="i-ri-graduation-cap-line"></span> Formation Actuelle</h3>
+    <div class="flex flex-col gap-3">
+      <a href="https://www.univ-jfc.fr/masters/audiovisuel-medias-interactifs-numeriques-jeux" target="_blank" class="p-4 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:border-sunset-purple hover:bg-sunset-purple/10 transition-colors flex justify-between items-center group no-underline text-black dark:text-white">
+        <div>
+          <div class="font-bold">INUC - Master AMINJ</div>
+          <div class="text-sm opacity-60">Audiovisuel, Médias Interactifs Numériques et Jeux</div>
+        </div>
+        <div class="i-ri-external-link-line opacity-0 group-hover:opacity-100 transition-opacity text-sunset-purple text-xl"></div>
+      </a>
+    </div>
+    <form method="dialog" class="mt-6 flex justify-end">
+      <button class="px-5 py-2.5 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors font-bold cursor-pointer">Fermer</button>
+    </form>
+  </dialog>
 
   <!-- Quest Log (Terminal Style) -->
   <div class="p-5 rounded bg-[#111] border border-white/10 font-mono text-sm relative overflow-hidden group">
@@ -43,7 +98,7 @@
 ### <span class="glitch text-neon-pink" data-text="Compétences">Compétences</span>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-  <div class="p-4 rounded border border-white/10 bg-white/5 hover:border-neon-pink transition-colors">
+  <div class="p-4 rounded border border-white/10 bg-white/5">
     <h4 class="font-bold text-lg mb-2">Moteurs & Langages</h4>
     <ul class="list-disc list-inside op-70 text-sm leading-relaxed">
       <li>Unity 2D / 3D / WebGL / VR / AR</li>
@@ -52,10 +107,10 @@
     </ul>
   </div>
   
-  <div class="p-4 rounded border border-white/10 bg-white/5 hover:border-neon-pink transition-colors">
+  <div class="p-4 rounded border border-white/10 bg-white/5">
     <h4 class="font-bold text-lg mb-2">Spécialités</h4>
     <ul class="list-disc list-inside op-70 text-sm leading-relaxed">
-      <li>Chef de projet / Tech Lead</li>
+      <li>Chef de projet / Main Developper</li>
       <li>Game Design & Narration</li>
       <li>UI/UX Design</li>
     </ul>
@@ -68,41 +123,45 @@
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="projects" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="/CEOfolio/fr/projects" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-gamepad-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base relative z-0">Projets</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="experiences" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="/CEOfolio/fr/experiences" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-briefcase-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Expériences</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="parcours" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="/CEOfolio/fr/parcours" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-road-map-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Parcours</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="skills" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="/CEOfolio/fr/skills" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-code-box-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Compétences</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="contact" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="/CEOfolio/fr/contact" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-mail-send-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Contact</div>
   </div>
 </div>
 
-<p class="flex justify-center items-center gap-6 mt-8">
-  <a class="flex items-center gap-2 hover:text-neon-blue transition-colors no-underline!" href="https://www.linkedin.com/in/nino-sacchi-806aa9340/" target="_blank">
-    <span class="i-simple-icons-linkedin text-xl"></span>
-    <span class="font-bold">LinkedIn</span>
+---
+
+### <span class="glitch text-neon-blue" data-text="Me suivre">Me suivre</span>
+
+<p class="flex justify-center items-center gap-8 mt-12 mb-8">
+  <a class="flex flex-col items-center gap-3 hover:text-neon-blue transition-colors no-underline! group" href="https://www.linkedin.com/in/nino-sacchi-806aa9340/" target="_blank">
+    <span class="i-simple-icons-linkedin text-6xl group-hover:scale-110 transition-transform"></span>
+    <span class="font-bold text-xl">LinkedIn</span>
   </a>
-  <span class="op-20">|</span>
-  <a class="flex items-center gap-2 hover:text-neon-pink transition-colors no-underline!" href="https://github.com/MarquisDeSac" target="_blank">
-    <span class="i-simple-icons-github text-xl"></span>
-    <span class="font-bold">GitHub</span>
+  <span class="op-20 text-4xl">|</span>
+  <a class="flex flex-col items-center gap-3 hover:text-neon-pink transition-colors no-underline! group" href="https://github.com/MarquisDeSac" target="_blank">
+    <span class="i-simple-icons-github text-6xl group-hover:scale-110 transition-transform"></span>
+    <span class="font-bold text-xl">GitHub</span>
   </a>
 </p>
 

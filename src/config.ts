@@ -94,7 +94,6 @@ export const UI: Ui = {
   },
   externalLink: {
     newTab: false,
-    cursorType: '',
     showNewTabIcon: false,
   },
   postMetaStyle: 'minimal',
