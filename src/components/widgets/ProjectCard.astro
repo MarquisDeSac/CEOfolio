@@ -53,10 +53,16 @@ const skillsTitle = lang === 'en' ? 'Skills' : 'Compétences'
       )}
     </div>
     
-    <h3 class={`text-2xl font-display font-bold u-text-main group-hover:text-${color} transition-colors mb-2`}>
+    <h3 class={`text-2xl font-display font-bold u-text-main group-hover:text-${color} transition-colors mb-2 flex items-center gap-2`}>
       {data.id // Using ID as title for now
         .split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
       }
+      {data.recommendation && (
+        <span class="i-ri-award-fill text-amber-400 text-lg" title={lang === 'en' ? 'Letter of recommendation' : 'Lettre de recommandation'}></span>
+      )}
+      {data.playLink && (
+        <span class="i-ri-gamepad-line text-emerald-400 text-lg" title={lang === 'en' ? 'Playable' : 'Jouable'}></span>
+      )}
     </h3>
     
     <p class="u-text-muted text-sm leading-relaxed line-clamp-3 mb-6">

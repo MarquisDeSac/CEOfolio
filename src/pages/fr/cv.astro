@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nino Sacchi — CV</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4; margin: 1.2cm 1.4cm; }
+
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: white;
+    line-height: 1.45;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a1a1a;
+    margin-bottom: 12px;
+  }
+
+  header .identity h1 {
+    font-size: 22pt;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    line-height: 1.1;
+  }
+
+  header .identity h2 {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #444;
+    margin-top: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  header .contacts {
+    text-align: right;
+    font-size: 8pt;
+    color: #444;
+  }
+
+  .contact-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+  }
+
+  .contact-label {
+    font-weight: 700;
+    color: #999;
+    font-size: 6.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    min-width: 48px;
+    text-align: right;
+  }
+
+  .contact-value {
+    white-space: nowrap;
+    color: #333;
+  }
+
+  /* ── PROFIL ── */
+  .profil {
+    font-size: 9pt;
+    color: #222;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+
+  .profil strong { font-weight: 700; color: #1a1a1a; }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 195px;
+    gap: 20px;
+  }
+
+  /* ── SECTION TITLES ── */
+  h3 {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #1a1a1a;
+    border-bottom: 1.5px solid #1a1a1a;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+
+  section { margin-bottom: 14px; }
+
+  /* ── ENTRIES (Exp / Formation) ── */
+  .entry {
+    padding-left: 10px;
+    border-left: 2px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .entry-title { font-size: 9.5pt; font-weight: 700; color: #1a1a1a; }
+
+  .entry-date {
+    font-size: 7.5pt;
+    color: #777;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  .entry-org { font-size: 8.5pt; font-weight: 600; color: #333; margin-bottom: 3px; }
+  .entry-sub { font-size: 7.5pt; color: #666; font-style: italic; margin-bottom: 3px; }
+
+  .entry ul {
+    font-size: 8pt;
+    color: #444;
+    list-style: disc;
+    margin-left: 12px;
+    line-height: 1.5;
+  }
+
+  .entry ul li { margin-bottom: 1px; }
+
+  /* ── PROJETS ── */
+  .projet-entry {
+    padding-left: 10px;
+    border-left: 2px solid #ccc;
+    margin-bottom: 11px;
+  }
+
+  .projet-entry:last-child { margin-bottom: 0; }
+
+  .projet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .projet-title { font-size: 9.5pt; font-weight: 700; color: #1a1a1a; }
+  .projet-badge { font-size: 7pt; color: #777; font-style: italic; }
+
+  .projet-accroche {
+    font-size: 8pt;
+    color: #333;
+    font-style: italic;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .projet-entry ul {
+    font-size: 8pt;
+    color: #444;
+    list-style: disc;
+    margin-left: 12px;
+    line-height: 1.5;
+  }
+
+  .projet-entry ul li { margin-bottom: 1px; }
+
+  /* ── RIGHT COLUMN ── */
+  .right-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-col section { margin-bottom: 12px; }
+
+  /* Skills — un seul cadre, sans fond */
+  .skill-group { margin-bottom: 7px; }
+
+  .skill-label {
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+
+  .tag {
+    font-size: 7.5pt;
+    padding: 1px 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    background: none;
+  }
+
+  .tag-highlight {
+    font-size: 7.5pt;
+    padding: 1px 6px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 3px;
+    color: #1a1a1a;
+    background: none;
+    font-weight: 700;
+  }
+
+  /* Langues */
+  .langue-list { font-size: 8pt; color: #333; }
+
+  .langue-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+  }
+
+  .langue-item .niveau { font-weight: 600; color: #1a1a1a; }
+
+  /* Note portfolio en bas colonne secondaire */
+  .portfolio-note {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 7.5pt;
+    color: #666;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .portfolio-note a {
+    color: #555;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="identity">
+    <h1>Nino Sacchi</h1>
+    <h2>Développeur Jeux Vidéo &amp; Jeux Sérieux</h2>
+  </div>
+  <div class="contacts">
+    <div class="contact-line">
+      <span class="contact-label">Mail</span>
+      <span class="contact-value">nino.sacchi.pro@gmail.com</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">linkedin.com/in/nino-sacchi-806aa9340</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-label">GitHub</span>
+      <span class="contact-value">github.com/MarquisDeSac</span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-label">Portfolio</span>
+      <span class="contact-value">marquisdesac.github.io/CEOfolio/fr/</span>
+    </div>
+  </div>
+</header>
+
+<!-- PROFIL -->
+<p class="profil">
+  <strong>Développeur jeux vidéo passionné</strong>, je m'implique autant dans la conception (<strong>game design</strong>, prototypage) et le pilotage de projet que dans le code (<strong>Unity, Godot · 2D/3D/VR/WebGL</strong>). Une expérience internationale en <strong>Corée du Sud</strong> et plusieurs projets conduits en <strong>Master AMINJ</strong> (en cours) ont consolidé ma vision transversale du développement de <strong>jeux et jeux sérieux</strong>.
+</p>
+
+<!-- GRID -->
+<div class="grid">
+
+  <!-- COLONNE PRINCIPALE -->
+  <div class="left-col">
+
+    <!-- EXPÉRIENCES -->
+    <section>
+      <h3>Expériences Professionnelles</h3>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Développeur Unity 3D WebGL</span>
+          <span class="entry-date">Mars 2025 – Juin 2025</span>
+        </div>
+        <div class="entry-org">VHEX Lab Co., Ltd. — Suwon-si, Corée du Sud</div>
+        <ul>
+          <li>Développement d'applications WebGL interactives (C#, JS Interop, API REST).</li>
+          <li>Intégration de technologies vocales : Voice Cloning, TTS/STT, enregistrement audio navigateur.</li>
+          <li>Systèmes d'IA pour l'analyse comportementale via scénarios vidéo interactifs.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Présentateur Tech</span>
+          <span class="entry-date">Mai 2025</span>
+        </div>
+        <div class="entry-org">VHEX Lab Co., Ltd. — World IT Show 2025, Séoul COEX, Corée du Sud</div>
+        <ul>
+          <li>Présentation des produits et solutions B2B lors du plus grand salon IT de Corée.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORMATION -->
+    <section>
+      <h3>Formation</h3>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Master AMINJ</span>
+          <span class="entry-date">2025 – Présent</span>
+        </div>
+        <div class="entry-org">INU Champollion — Albi, France</div>
+        <div class="entry-sub">Audiovisuel, Médias Interactifs Numériques et Jeux</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Échange International</span>
+          <span class="entry-date">2024 – 2025</span>
+        </div>
+        <div class="entry-org">Ajou University (아주대학교) — Suwon-si, Corée du Sud</div>
+        <div class="entry-sub">Digital Media & Computer Science</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Licence Informatique</span>
+          <span class="entry-date">2020 – 2025</span>
+        </div>
+        <div class="entry-org">Université Marie et Louis Pasteur — Besançon, France</div>
+      </div>
+    </section>
+
+    <!-- PROJETS PHARES -->
+    <section>
+      <h3>Projets Phares</h3>
+
+      <div class="projet-entry">
+        <div class="projet-header">
+          <span class="projet-title">ClassLab</span>
+          <span class="projet-badge">Projet international · Chef de projet, Développeur &amp; Game Designer</span>
+        </div>
+        <p class="projet-accroche">Serious game 3D immersif pour la formation d'enseignants à la gestion de situations complexes (harcèlement, conflits). Partenariat avec l'université colombienne Uniminuto.</p>
+        <ul>
+          <li>Conception d'un système narratif à embranchements évaluant les décisions selon 5 compétences pédagogiques.</li>
+          <li>Implémentation : sauvegarde JSON/CSV, base de données Supabase, dashboard analytique, interface multilingue.</li>
+          <li>Déploiement WebGL — multi-profils, accessible navigateur sans installation.</li>
+        </ul>
+      </div>
+
+      <div class="projet-entry">
+        <div class="projet-header">
+          <span class="projet-title">DarkChild Story</span>
+          <span class="projet-badge">Projet académique · Chef de projet, Développeur &amp; Game Designer</span>
+        </div>
+        <p class="projet-accroche">Action rogue-lite 2D sur Unity combinant stratégie (deck d'ennemis, placement) et action-RPG.</p>
+        <ul>
+          <li>Système de progression basé sur la mort avec déblocage d'éléments et sauvegarde multi-profils (JSON).</li>
+          <li>Implémentation : système d'achievements, équilibrage gameplay, gestion des runs.</li>
+        </ul>
+      </div>
+
+      <div class="projet-entry">
+        <div class="projet-header">
+          <span class="projet-title">Thermo Clash</span>
+          <span class="projet-badge">Projet académique · 48h · Chef de projet, Développeur &amp; Game Designer</span>
+        </div>
+        <p class="projet-accroche">Serious game 2D éducatif mêlant combat et apprentissage scientifique pour un public adolescent, développé en 48h dans le cadre d'un exercice pédagogique en conditions réelles.</p>
+        <ul>
+          <li>Narration interactive et mécaniques temps réel pour illustrer les transformations de la matière.</li>
+          <li>Implémentation : système de combat, feedback audio/visuel dynamique, scènes doublées, module pédagogique narré.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- COLONNE SECONDAIRE -->
+  <div class="right-col">
+
+    <!-- COMPÉTENCES -->
+    <section>
+      <h3>Compétences</h3>
+
+      <div class="skill-group">
+        <div class="skill-label">Moteurs & Outils</div>
+        <div class="tags">
+          <span class="tag">Unity 3D/2D</span>
+          <span class="tag">WebGL</span>
+          <span class="tag">VR / AR</span>
+          <span class="tag">Godot</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Langages</div>
+        <div class="tags">
+          <span class="tag">C#</span>
+          <span class="tag">C</span>
+          <span class="tag">GDScript</span>
+          <span class="tag">Java</span>
+          <span class="tag">Python</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Spécialités</div>
+        <div class="tags">
+          <span class="tag">Développeur</span>
+          <span class="tag">Game Designer</span>
+          <span class="tag">Chef de Projet</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUES -->
+    <section>
+      <h3>Langues</h3>
+      <div class="langue-list">
+        <div class="langue-item"><span>Français</span><span class="niveau">Langue natale</span></div>
+        <div class="langue-item"><span>Anglais</span><span class="niveau">C1 — TOEIC 940</span></div>
+        <div class="langue-item"><span>Allemand</span><span class="niveau">B1</span></div>
+        <div class="langue-item"><span>Coréen</span><span class="niveau">Débutant</span></div>
+        <div class="langue-item"><span>Japonais</span><span class="niveau">Débutant</span></div>
+      </div>
+    </section>
+
+    <!-- NOTE PORTFOLIO (poussée en bas) -->
+    <div class="portfolio-note">
+      Plus de projets détaillés disponibles sur mon portfolio en ligne.<br>
+      marquisdesac.github.io/CEOfolio/fr/
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

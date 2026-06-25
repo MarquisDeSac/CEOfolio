@@ -49,7 +49,10 @@
       "/projects/darkchild-story/darkchild-story-10.webp"
     ],
     "video": "/projects/darkchild-story/web_darkchild-story-demo.mp4",
-    "featured": true
+    "featured": true,
+    "playLink": "https://example.com/darkchild-play",
+    "playLabel": "Jouer (WebGL)",
+    "playLabel_en": "Play (WebGL)"
   },
   {
     "id": "chroniques-oubliees",
@@ -101,7 +104,10 @@
       "/projects/chroniques-oubliees/chroniques-oubliees-12.webp",
       "/projects/chroniques-oubliees/chroniques-oubliees-13.webp"
     ],
-    "featured": false
+    "featured": false,
+    "playLink": "https://example.com/chroniques-play",
+    "playLabel": "Jouer (WebGL)",
+    "playLabel_en": "Play (WebGL)"
   },
   {
     "id": "classlab",
@@ -157,7 +163,14 @@
       "/projects/classlab/classlab-8.webp"
     ],
     "video": "/projects/classlab/web_classlab-demo.mp4",
-    "featured": true
+    "featured": true,
+    "recommendation": "/projects/classlab/lettre-recommandation-classlab.pdf",
+    "recommendation_label": "Lettre de recommandation — Uniminuto",
+    "recommendation_label_en": "Letter of Recommendation — Uniminuto",
+    "projectType": "semi-pro",
+    "playLink": "https://example.com/classlab-play",
+    "playLabel": "Jouer (WebGL)",
+    "playLabel_en": "Play (WebGL)"
   },
   {
     "id": "temperamancien",
@@ -215,7 +228,10 @@
       "/projects/thermoclash/thermoclash-12.webp"
     ],
     "video": "/projects/thermoclash/web_thermoclash-demo.mp4",
-    "featured": true
+    "featured": true,
+    "playLink": "https://example.com/thermoclash-play",
+    "playLabel": "Jouer (WebGL)",
+    "playLabel_en": "Play (WebGL)"
   },
   {
     "id": "dramatic-life-story",
@@ -261,7 +277,10 @@
       "Modular code and data integrity ensured."
     ],
     "images": [],
-    "featured": false
+    "featured": false,
+    "playLink": "https://example.com/dramatic-life-story-play",
+    "playLabel": "Jouer (WebGL)",
+    "playLabel_en": "Play (WebGL)"
   },
   {
     "id": "sonic-alphabet",
@@ -376,7 +395,10 @@
       "Immersive atmosphere (BGM, SFX)."
     ],
     "images": [],
-    "featured": false
+    "featured": false,
+    "playLink": "https://example.com/face-the-fear-play",
+    "playLabel": "Jouer (itch.io)",
+    "playLabel_en": "Play (itch.io)"
   },
   {
     "id": "element-powder",
@@ -424,6 +446,9 @@
       "/projects/element-powder/element-powder-4.webp"
     ],
     "video": "/projects/element-powder/web_element-powder-demo.mp4",
-    "featured": false
+    "featured": false,
+    "playLink": "https://example.com/element-powder-play",
+    "playLabel": "Jouer",
+    "playLabel_en": "Play"
   }
 ]

@@ -169,6 +169,13 @@ export const projectSchema = z.object({
   images: z.array(z.string()).default([]).describe('List of image paths for the project gallery.'),
   video: z.string().optional().describe('Optional demo video path.'),
   featured: z.boolean().default(false).describe('Whether the project is featured in the showcase.'),
+  recommendation: z.string().optional().describe('Path to a recommendation letter PDF for this project.'),
+  recommendation_label: z.string().optional().describe('Label for the recommendation letter (FR).'),
+  recommendation_label_en: z.string().optional().describe('Label for the recommendation letter (EN).'),
+  playLink: z.string().url('Invalid url.').optional().describe('External link to play the game (itch.io, WebGL page, etc.).'),
+  playLabel: z.string().optional().describe('Label for the play button (FR).'),
+  playLabel_en: z.string().optional().describe('Label for the play button (EN).'),
+  projectType: z.string().optional().describe('Type of project: personal, academic, semi-pro, professional.'),
 })
 
 export type ProjectSchema = z.infer<typeof projectSchema>

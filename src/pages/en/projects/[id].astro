@@ -69,6 +69,20 @@ const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word
                 {data.client && (
                     <p class="text-xl opacity-60 font-mono u-text-main">{data.client}</p>
                 )}
+                {data.projectType === 'semi-pro' && (
+                    <div class="mt-3 flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="i-ri-building-line"></span> Tutored Project — Real Client
+                        </span>
+                    </div>
+                )}
+                {data.recommendation && (
+                    <div class="mt-2 flex items-center gap-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="i-ri-award-line"></span> Letter of recommendation
+                        </span>
+                    </div>
+                )}
             </div>
         </header>
 
@@ -122,6 +136,28 @@ const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word
                         View Repository
                     </a>
                 </section>
+
+                {data.playLink && (
+                    <section>
+                        <a href={data.playLink} target="_blank" class="flex items-center justify-center gap-2 w-full p-4 rounded-xl bg-emerald-500 text-black font-bold hover:brightness-110 transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] no-underline animate-pulse hover:animate-none">
+                            <span class="i-ri-gamepad-line text-xl"></span>
+                            {data.playLabel_en || 'Play'}
+                        </a>
+                    </section>
+                )}
+
+                {data.recommendation && (
+                    <section class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="i-ri-award-fill text-amber-400 text-lg"></span>
+                            <h3 class="text-sm font-bold text-amber-400 uppercase tracking-widest">Recommendation</h3>
+                        </div>
+                        <a href={withBasePath(data.recommendation)} target="_blank" class="flex items-center justify-center gap-2 w-full p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold hover:bg-amber-500/20 transition-all no-underline text-sm">
+                            <span class="i-ri-download-2-line text-lg"></span>
+                            Download Letter
+                        </a>
+                    </section>
+                )}
             </div>
         </div>
 
@@ -131,6 +167,34 @@ const title = data.id.split('-').map(word => word.charAt(0).toUpperCase() + word
                 <h2 class="text-2xl font-display font-bold mb-8 flex items-center gap-3 u-text-main">
                     <span class={`i-ri-image-line text-${color}`}></span> Gallery
                 </h2>
+                
+                {/* Recommendation Letter Viewer */}
+                {data.recommendation && (
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 u-text-main">
+                            <span class="i-ri-award-fill text-amber-400"></span>
+                            {data.recommendation_label_en || 'Letter of recommendation'}
+                        </h3>
+                        <div class="w-full rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5 border-2 border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.1)] relative">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 to-amber-300"></div>
+                            <iframe 
+                                src={withBasePath(data.recommendation)} 
+                                class="w-full h-[70vh] min-h-[500px]"
+                                title="Letter of recommendation"
+                            ></iframe>
+                            <div class="p-4 bg-black/10 dark:bg-white/5 border-t border-amber-500/20 flex items-center justify-between">
+                                <span class="text-sm opacity-60 u-text-muted flex items-center gap-2">
+                                    <span class="i-ri-file-pdf-2-line text-red-400"></span>
+                                    PDF — {data.recommendation_label_en || 'Letter of recommendation'}
+                                </span>
+                                <a href={withBasePath(data.recommendation)} download class="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold hover:bg-amber-500/20 transition-all no-underline text-sm">
+                                    <span class="i-ri-download-2-line"></span>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                )}
                 
                 <div class="flex flex-col gap-8">
                     {/* Video Demo */}

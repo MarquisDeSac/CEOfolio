@@ -1,4 +1,14 @@
-<img src="/CEOfolio/profile.webp" alt="Profile Photo" class="w-48 h-48 md:w-64 md:h-64 object-cover object-[center_15%] rounded-full mx-auto shadow-[0_0_30px_rgba(255,255,255,0.1)] border-4 border-white/10 mb-8" />
+<img src="/CEOfolio/profile.webp" alt="Photo de Profil" class="w-48 h-48 md:w-64 md:h-64 object-cover object-[center_15%] rounded-full mx-auto shadow-[0_0_30px_rgba(255,255,255,0.1)] border-4 border-white/10 mb-6" />
+
+<!-- CV Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+  <a href="/CEOfolio/fr/cv" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon-pink/10 border border-neon-pink/30 text-neon-pink font-bold hover:bg-neon-pink/20 hover:border-neon-pink transition-all no-underline shadow-[0_0_15px_rgba(255,0,127,0.15)] hover:shadow-[0_0_25px_rgba(255,0,127,0.3)]">
+    <span class="i-ri-eye-line text-lg"></span> Voir le CV
+  </a>
+  <a href="/CEOfolio/fr/cv" target="_blank" onclick="setTimeout(() => window.open('/CEOfolio/fr/cv', '_blank').print(), 100)" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon-pink border border-neon-pink text-white font-bold hover:brightness-110 transition-all no-underline shadow-[0_0_20px_rgba(255,0,127,0.3)] hover:shadow-[0_0_30px_rgba(255,0,127,0.5)] cursor-pointer">
+    <span class="i-ri-download-2-line text-lg"></span> Télécharger PDF
+  </a>
+</div>
 
 <div class="flex flex-col gap-6 mt-8">
 
@@ -123,27 +133,27 @@
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="/CEOfolio/fr/projects" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="./projects" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-gamepad-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base relative z-0">Projets</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="/CEOfolio/fr/experiences" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="./experiences" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-briefcase-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Expériences</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="/CEOfolio/fr/parcours" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="./parcours" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-road-map-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Parcours</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="/CEOfolio/fr/skills" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="./skills" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-code-box-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Compétences</div>
   </div>
   <div class="relative p-4 rounded border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-sunset-purple transition-colors text-center group flex flex-col items-center justify-center gap-2">
-    <a href="/CEOfolio/fr/contact" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
+    <a href="./contact" class="absolute inset-0 z-10 w-full h-full cursor-pointer print:hidden"></a>
     <div class="i-ri-mail-send-line text-3xl mb-1 group-hover:scale-110 transition-transform text-sunset-purple relative z-0"></div>
     <div class="font-bold text-base">Contact</div>
   </div>
