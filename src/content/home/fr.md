@@ -92,7 +92,8 @@
     </form>
   </dialog>
 
-  <dialog id="modal-cv" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-4 md:p-6 rounded-xl text-black dark:text-white w-[95vw] max-w-5xl h-[90vh] m-auto shadow-2xl open:animate-fade-in outline-none flex flex-col">
+  <dialog id="modal-cv" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-4 md:p-6 rounded-xl text-black dark:text-white w-[95vw] max-w-5xl h-[90vh] m-auto shadow-2xl open:animate-fade-in outline-none">
+    <div class="flex flex-col h-full w-full">
     <div class="flex justify-between items-center mb-4">
       <h3 class="text-2xl font-bold text-neon-pink font-display flex items-center gap-2 m-0!"><span class="i-ri-profile-line"></span> Curriculum Vitae</h3>
       <form method="dialog">
@@ -111,6 +112,7 @@
       <a href="/CEOfolio/fr/cv" target="_blank" onclick="setTimeout(() => window.open('/CEOfolio/fr/cv', '_blank').print(), 100)" class="px-5 py-2.5 rounded-lg bg-neon-pink text-white hover:brightness-110 transition-colors font-bold no-underline flex items-center gap-2">
         <span class="i-ri-download-2-line"></span> Télécharger
       </a>
+    </div>
     </div>
   </dialog>
 
