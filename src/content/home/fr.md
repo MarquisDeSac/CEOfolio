@@ -2,9 +2,9 @@
 
 <!-- CV Buttons -->
 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-  <a href="/CEOfolio/fr/cv" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon-pink/10 border border-neon-pink/30 text-neon-pink font-bold hover:bg-neon-pink/20 hover:border-neon-pink transition-all no-underline shadow-[0_0_15px_rgba(255,0,127,0.15)] hover:shadow-[0_0_25px_rgba(255,0,127,0.3)]">
+  <button onclick="document.getElementById('modal-cv').showModal()" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon-pink/10 border border-neon-pink/30 text-neon-pink font-bold hover:bg-neon-pink/20 hover:border-neon-pink transition-all no-underline shadow-[0_0_15px_rgba(255,0,127,0.15)] hover:shadow-[0_0_25px_rgba(255,0,127,0.3)] cursor-pointer">
     <span class="i-ri-eye-line text-lg"></span> Voir le CV
-  </a>
+  </button>
   <a href="/CEOfolio/fr/cv" target="_blank" onclick="setTimeout(() => window.open('/CEOfolio/fr/cv', '_blank').print(), 100)" class="flex items-center gap-2 px-6 py-2.5 rounded-full bg-neon-pink border border-neon-pink text-white font-bold hover:brightness-110 transition-all no-underline shadow-[0_0_20px_rgba(255,0,127,0.3)] hover:shadow-[0_0_30px_rgba(255,0,127,0.5)] cursor-pointer">
     <span class="i-ri-download-2-line text-lg"></span> Télécharger PDF
   </a>
@@ -90,6 +90,28 @@
     <form method="dialog" class="mt-6 flex justify-end">
       <button class="px-5 py-2.5 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors font-bold cursor-pointer">Fermer</button>
     </form>
+  </dialog>
+
+  <dialog id="modal-cv" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 p-4 md:p-6 rounded-xl text-black dark:text-white w-[95vw] max-w-5xl h-[90vh] m-auto shadow-2xl open:animate-fade-in outline-none flex flex-col">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-2xl font-bold text-neon-pink font-display flex items-center gap-2 m-0!"><span class="i-ri-profile-line"></span> Curriculum Vitae</h3>
+      <form method="dialog">
+        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors cursor-pointer border-none text-black dark:text-white">
+          <span class="i-ri-close-line text-xl"></span>
+        </button>
+      </form>
+    </div>
+    <div class="flex-1 w-full bg-white rounded-lg overflow-hidden border border-black/10 dark:border-white/10 relative">
+      <iframe src="/CEOfolio/fr/cv" class="absolute inset-0 w-full h-full border-none" title="CV Nino Sacchi"></iframe>
+    </div>
+    <div class="mt-4 flex justify-end gap-3">
+      <a href="/CEOfolio/fr/cv" target="_blank" class="px-5 py-2.5 rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors font-bold no-underline text-black dark:text-white flex items-center gap-2">
+        <span class="i-ri-external-link-line"></span> Plein écran
+      </a>
+      <a href="/CEOfolio/fr/cv" target="_blank" onclick="setTimeout(() => window.open('/CEOfolio/fr/cv', '_blank').print(), 100)" class="px-5 py-2.5 rounded-lg bg-neon-pink text-white hover:brightness-110 transition-colors font-bold no-underline flex items-center gap-2">
+        <span class="i-ri-download-2-line"></span> Télécharger
+      </a>
+    </div>
   </dialog>
 
   <!-- Quest Log (Terminal Style) -->
