@@ -4,6 +4,7 @@ import BaseLayout from '~/layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 import { experiences } from '~/data/experiences'
 import { parcours } from '~/data/parcours'
+import { withBasePath } from '~/utils/path'
 
 // 1. Fetch All Data
 const projects = await getCollection('projects')
@@ -61,17 +62,17 @@ function registerSkill(skillName: string, sourceItem: SkillSource) {
 
 projects.forEach(p => {
   if (p.data.skills) {
-    p.data.skills.forEach(s => registerSkill(s, { title: p.data.id, link: `/fr/projects/${p.data.id}`, sourceType: 'Project' }))
+    p.data.skills.forEach(s => registerSkill(s, { title: p.data.id, link: withBasePath(`/fr/projects/${p.data.id}`), sourceType: 'Project' }))
   }
 })
 experiences.fr.forEach(e => {
   if (e.skills) {
-    e.skills.forEach(s => registerSkill(s, { title: e.role + ' @ ' + e.company, link: '/fr/experiences', sourceType: 'Exp' }))
+    e.skills.forEach(s => registerSkill(s, { title: e.role + ' @ ' + e.company, link: withBasePath('/fr/experiences'), sourceType: 'Exp' }))
   }
 })
 parcours.fr.forEach(p => {
   if (p.skills) {
-    p.skills.forEach(s => registerSkill(s, { title: p.title, link: '/fr/parcours', sourceType: 'Education' }))
+    p.skills.forEach(s => registerSkill(s, { title: p.title, link: withBasePath('/fr/parcours'), sourceType: 'Education' }))
   }
 })
 

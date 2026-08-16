@@ -32,7 +32,7 @@ export const experiences = {
             color: 'neon-blue',
             icon: 'i-ri-code-s-slash-line',
             links: [
-                { name: "VHEX Lab", url: "http://vhexlab.com", icon: "i-ri-building-line" }
+                { name: "VHEX Lab", url: "https://vhexlab.com", icon: "i-ri-building-line" }
             ]
         },
         {
@@ -75,7 +75,7 @@ export const experiences = {
             color: 'neon-blue',
             icon: 'i-ri-code-s-slash-line',
             links: [
-                { name: "VHEX Lab", url: "http://vhexlab.com", icon: "i-ri-building-line" }
+                { name: "VHEX Lab", url: "https://vhexlab.com", icon: "i-ri-building-line" }
             ]
         },
         {

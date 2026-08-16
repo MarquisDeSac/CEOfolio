@@ -50,7 +50,7 @@ export const parcours = {
             icon: 'i-ri-book-open-line',
             skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases'],
             links: [
-                { name: "UFR ST", url: "https://www.umlp.fr/composantes/ufr-st", icon: "i-ri-building-line" },
+                { name: "UMLP", url: "https://www.umlp.fr/", icon: "i-ri-building-line" },
                 { name: "Licence Informatique", url: "https://formations.univ-fcomte.fr/fr/index/formations/feuilleter-le-catalogue/licence-lmd-XA/licence-informatique-M4MKYC5V.html", icon: "i-ri-graduation-cap-line" }
             ]
         }
@@ -94,7 +94,7 @@ export const parcours = {
             icon: 'i-ri-book-open-line',
             skills: ['C', 'Java', 'Python', 'HTML/CSS', 'SQL', 'Databases'],
             links: [
-                { name: "UFR ST", url: "https://www.umlp.fr/composantes/ufr-st", icon: "i-ri-building-line" },
+                { name: "UMLP", url: "https://www.umlp.fr/", icon: "i-ri-building-line" },
                 { name: "Bachelor in CS", url: "https://formations.univ-fcomte.fr/fr/index/formations/feuilleter-le-catalogue/licence-lmd-XA/licence-informatique-M4MKYC5V.html", icon: "i-ri-graduation-cap-line" }
             ]
         }
